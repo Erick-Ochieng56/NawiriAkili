@@ -6,120 +6,144 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="description" content="Professional mental health services from Nawiri Akili-Care Africa: individual, family, group therapy, organisational wellness, and virtual care." />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html,body{width:100%;overflow-x:hidden;background:#fff;color:#1f2937;font-family:'Inter',system-ui,sans-serif;line-height:1.65}
-  a{color:inherit;text-decoration:none}h1,h2,h3,h4{font-family:'Fraunces',serif;line-height:1.18;letter-spacing:-.02em}
-  :root{--purple:#6D28D9;--purple-deep:#4C1D95;--purple-soft:#EDE9FE;--green:#059669;--green-soft:#D1FAE5}
-  nav.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid #f1f1f4}
-  nav.top .wrap{padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--purple-deep)}
-  .brand .dot{width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--green));box-shadow:0 0 0 4px var(--purple-soft)}
-  .links{display:flex;gap:28px;font-size:14px;font-weight:500}.links a{color:#374151;padding:6px 0;position:relative}
-  .links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--green);transition:width .25s}
-  .links a:hover{color:var(--purple)}.links a:hover::after{width:100%}
-  .nav-cta{background:var(--purple);color:#fff;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:600}
-  .burger{display:none;background:none;border:0;font-size:24px;color:var(--purple-deep);cursor:pointer}
-  @media(max-width:880px){.links,.nav-cta{display:none}.burger{display:block}.links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:20px 40px}}
-  .eyebrow{display:inline-block;background:var(--purple-soft);color:var(--purple-deep);padding:8px 14px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
-  section{width:100%;padding:90px 40px}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:600;font-size:14.5px;cursor:pointer;border:0;transition:transform .2s}
-  .btn-primary{background:var(--purple);color:#fff;box-shadow:0 14px 30px rgba(109,40,217,.3)}.btn-primary:hover{transform:translateY(-2px)}
-  .btn-green{background:var(--green);color:#fff}
-  .hero{padding:100px 40px 60px;background:radial-gradient(900px 500px at 80% 0,var(--purple-soft),transparent 60%),radial-gradient(700px 400px at 0 100%,var(--green-soft),transparent 60%),#fff;text-align:center}
-  .hero h1{font-size:clamp(44px,6vw,86px);font-weight:700;margin:18px auto;max-width:1100px}
-  .hero h1 .grad{background:linear-gradient(120deg,var(--purple),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero .lede{max-width:780px;margin:0 auto;color:#4b5563;font-size:18px}
-  .notice{max-width:900px;margin:30px auto 0;padding:18px 22px;background:var(--green-soft);border-left:4px solid var(--green);border-radius:14px;font-size:15px;color:#064e3b;text-align:left}
-  .cat-title{max-width:1300px;margin:0 auto 30px;font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:var(--purple-deep);font-weight:700}
-  .grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  html{font-size:17px}
+  :root{
+    --primary:#2a8c5a;--brand-dark:#1a6640;--brand-darkest:#112b1a;
+    --tint:#f0f9f5;--purple:#4f46a8;--purple-tint:#f0effe;
+    --blue-tint:#eaf4fd;--white:#ffffff;--body:#4a5568;--border:#e2ede4;
+    --chip-green-bg:#c8ead8;--chip-green-fg:#1a4d32;
+    --purple-deep:#312e81;--green:#2a8c5a;
+    --hero-image:url("https://images.unsplash.com/photo-1573497019940-1c28c88b4f2e?auto=format&fit=crop&w=1920&q=80");
+    --final-bg:url("https://images.unsplash.com/photo-1528736479072-96554d3b5c3d?auto=format&fit=crop&w=1920&q=80");
+  }
+  html,body{width:100%;overflow-x:hidden;background:var(--white);color:var(--body);font-family:'Nunito',sans-serif;font-weight:400;line-height:1.8}
+  h1,h2,h3{font-family:'DM Serif Display',serif;font-weight:400;color:var(--brand-darkest);line-height:1.22}
+  h1{font-size:clamp(2.5rem,3.2vw,3rem)}
+  h2{font-size:1.4rem}
+  h3{font-size:1.2rem}
+  a{color:inherit;text-decoration:none}
+
+  nav.top{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:0.5px solid var(--border)}
+  nav.top .wrap{padding:1.1rem 2.75rem;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  @media(max-width:640px){nav.top .wrap{padding:0.875rem 1.25rem}}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Nunito',sans-serif;font-weight:700;font-size:1.125rem;color:var(--brand-dark)}
+  .links{display:flex;gap:28px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:400}
+  .links a{color:var(--body);padding:6px 0}
+  .links a:hover{color:var(--primary)}
+  .nav-cta{background:var(--primary);color:var(--white);padding:9px 22px;border-radius:100px;font-size:14px;font-weight:600}
+  .nav-cta:hover{background:var(--brand-dark)}
+  .burger{display:none;background:none;border:0;font-size:24px;color:var(--brand-dark);cursor:pointer}
+  @media(max-width:880px){.links,.nav-cta{display:none}.burger{display:block}.links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--white);flex-direction:column;padding:1.25rem 2.5rem;border-bottom:0.5px solid var(--border)}}
+
+  .eyebrow{display:inline-block;background:var(--chip-green-bg);color:var(--chip-green-fg);padding:9px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;cursor:pointer;border:0;transition:background .2s,color .2s}
+  .btn-primary{background:var(--primary);color:var(--white)}
+  .btn-primary:hover{background:var(--brand-dark)}
+  .btn-green{background:var(--primary);color:var(--white)}
+  .btn-green:hover{background:var(--brand-dark)}
+  .btn-on-white{background:var(--white);color:var(--purple);border:1.5px solid var(--purple);padding:12px 28px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:14px}
+  .btn-on-white:hover{background:var(--purple-tint)}
+
+  .hero{padding:4rem min(5vw,3.25rem) 3rem;text-align:center;border-bottom:0.5px solid var(--border)}
+  .hero h1{margin:1rem auto;max-width:1100px}
+  .hero h1 .grad{color:var(--brand-dark);font-style:italic}
+  .hero .lede{max-width:40rem;margin:0 auto;color:var(--body);font-size:1.125rem;font-weight:400}
+  .notice{max-width:44rem;margin:30px auto 0;padding:1.35rem 1.65rem;background:var(--blue-tint);border:0.5px solid var(--border);border-radius:18px;font-size:1.0625rem;color:var(--body);text-align:left;font-weight:400}
+
+  .cat-title{max-width:1300px;margin:0 auto 1.35rem;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple);font-family:'Nunito',sans-serif;font-weight:700}
+  .grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1.35rem;background:transparent;border:0}
   @media(max-width:900px){.grid{grid-template-columns:1fr}}
-  .svc{padding:38px;border-radius:24px;background:#fff;border:1px solid #ececf0;transition:transform .3s,box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
-  .svc:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(109,40,217,.1);border-color:var(--purple-soft)}
-  .svc::before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:var(--purple-soft);top:-40px;right:-40px;opacity:.6;transition:transform .5s}
-  .svc:hover::before{transform:scale(1.6)}
-  .svc .ic{position:relative;z-index:2;width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--purple),var(--green));display:grid;place-items:center;font-size:24px;color:#fff;margin-bottom:18px}
-  .svc h3{position:relative;z-index:2;font-size:24px;color:var(--purple-deep);margin-bottom:12px}
-  .svc p{position:relative;z-index:2;color:#4b5563;font-size:15px;margin-bottom:14px}
-  .svc .tags{position:relative;z-index:2;font-size:12.5px;color:var(--green);font-weight:600;letter-spacing:.04em}
-  .glance{background:linear-gradient(135deg,var(--purple-deep),var(--purple));color:#fff;border-radius:32px;max-width:1300px;margin:0 auto;padding:60px 50px;text-align:center;position:relative;overflow:hidden}
-  .glance::after{content:"";position:absolute;width:400px;height:400px;background:var(--green);border-radius:50%;opacity:.25;filter:blur(80px);right:-100px;top:-100px}
-  .glance h2{color:#fff;font-size:clamp(28px,3.5vw,42px);margin-bottom:16px;position:relative}
-  .glance p{color:#e9d5ff;max-width:760px;margin:0 auto 26px;position:relative}
-  .glance .btns{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .svc{padding:2.25rem 2rem;background:var(--white);border:0.5px solid var(--border);border-radius:18px;position:relative}
+  .svc::before{display:none}
+  .svc .ic{position:relative;z-index:2;width:48px;height:48px;border-radius:10px;background:var(--tint);display:grid;place-items:center;font-size:22px;margin-bottom:18px;border:0.5px solid var(--border)}
+  .svc h3{position:relative;z-index:2;font-size:1.1875rem;color:var(--brand-darkest);margin-bottom:12px;font-family:'DM Serif Display',serif}
+  .svc p{position:relative;z-index:2;color:var(--body);font-size:1.0625rem;margin-bottom:14px;font-weight:400;line-height:1.75}
+  .svc .tags{position:relative;z-index:2;font-size:13px;color:var(--primary);font-family:'Nunito',sans-serif;font-weight:600;letter-spacing:0.04em}
+
+  .glance{background-color:var(--brand-dark);color:var(--white);border-radius:18px;max-width:1300px;margin:0 auto;padding:3.25rem 2.5rem;text-align:center;position:relative;border:0.5px solid var(--border);isolation:isolate}
+  .glance h2{color:var(--white);font-size:1.4rem;margin-bottom:1rem;font-family:'DM Serif Display',serif}
+  .glance p{color:rgba(255,255,255,0.92);max-width:40rem;margin:0 auto 1.65rem;font-weight:400;font-size:1.0625rem;line-height:1.75}
+  .glance .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
   .faq{max-width:900px;margin:0 auto}
-  .q{background:#fafafb;border:1px solid #ececf0;border-radius:18px;margin-bottom:14px;overflow:hidden;transition:background .3s}
-  .q[open]{background:#fff;border-color:var(--purple-soft);box-shadow:0 12px 30px rgba(109,40,217,.06)}
-  .q summary{padding:22px 26px;cursor:pointer;font-weight:600;color:var(--purple-deep);list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:16.5px}
-  .q summary::after{content:"+";font-size:24px;color:var(--green);transition:transform .3s}
-  .q[open] summary::after{transform:rotate(45deg)}
-  .q .ans{padding:0 26px 24px;color:#4b5563;font-size:15px}
-  footer{background:#0f0a1a;color:#cbb6ff;padding:80px 40px 30px}
+  .q{background:var(--white);border:0.5px solid var(--border);border-radius:18px;margin-bottom:1rem;overflow:hidden}
+  .q[open]{border-color:var(--primary)}
+  .q summary{padding:22px 26px;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:600;color:var(--brand-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:1.0625rem}
+  .q summary::after{content:"+";font-size:22px;color:var(--primary)}
+  .q[open] summary::after{content:"−"}
+  .q .ans{padding:0 26px 24px;color:var(--body);font-size:1.0625rem;font-weight:400;line-height:1.75}
+
+  footer{background:var(--brand-darkest);color:#c8ead8;padding:3.5rem 2.5rem 2rem}
   .foot-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px}
   @media(max-width:880px){.foot-grid{grid-template-columns:1fr 1fr}}
-  footer h5{color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:18px}
-  footer ul{list-style:none}footer li{margin-bottom:10px;font-size:14.5px}footer a:hover{color:#6ee7b7}
-  .foot-brand{font-family:'Fraunces',serif;color:#fff;font-size:24px;margin-bottom:12px}
-  .copy{max-width:1400px;margin:60px auto 0;padding-top:30px;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-size:13px;color:#7c6ba8}
-  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}.reveal.in{opacity:1;transform:none}
+  footer h5{color:var(--white);font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px}
+  footer ul{list-style:none}footer li{margin-bottom:10px;font-size:1rem;font-weight:400}
+  footer a:hover{color:var(--white)}
+  .foot-brand{font-family:'Nunito',sans-serif;font-weight:700;color:var(--white);font-size:1.25rem;margin-bottom:12px}
+  .copy{max-width:1400px;margin:3rem auto 0;padding-top:2rem;border-top:0.5px solid rgba(255,255,255,0.15);text-align:center;font-size:13px;color:rgba(255,255,255,0.65);font-weight:300}
+  .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s,transform .6s}  .reveal.in{opacity:1;transform:none}
 </style>
+<link rel="stylesheet" href="site.css" />
 </head>
 <body>
 <nav class="top"><div class="wrap">
-  <a href="/home.html" class="brand"><span class="dot"></span> Nawiri Akili</a>
+  <a href="/home.html" class="brand"><img class="brand-logo" src="images/nawiri_logo.jpeg" width="320" height="320" alt="Nawiri Akili — Care Africa" decoding="async" /></a>
   <button class="burger" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
   <div class="links"><a href="/home.html">Home</a><a href="/about.html">About</a><a href="/services.html">Services</a><a href="/initiative.html">Initiative</a><a href="/walk-with-us.html">Walk With Us</a><a href="/blog.html">Blog</a><a href="/contact.html">Contact</a></div>
   <a href="/book.html" class="nav-cta">Book a Session</a>
 </div></nav>
 
-<section class="hero">
+<section class="hero hero-bg hero-bg--soft">
   <span class="eyebrow">Services</span>
   <h1>Professional <span class="grad">mental health care</span></h1>
   <p class="lede"><em>Evidence-based. Compassionate. Confidential.</em> Our services are designed to meet you where you are — and support you toward where you want to be.</p>
-  <div class="notice"><strong>This page covers the professional services of Nawiri Akili-Care Africa.</strong> Subsidised and free care through the Nawiri Akili Initiative is covered on the <a href="/walk-with-us.html" style="color:var(--purple);font-weight:600">Walk With Us</a> page.</div>
+  <div class="notice"><strong>This page covers the professional services of Nawiri Akili-Care Africa.</strong> Subsidised and free care through the Nawiri Akili Initiative is covered on the <a href="/walk-with-us.html" style="color:var(--primary);font-weight:600">Walk With Us</a> page.</div>
 </section>
 
 <section>
   <div class="cat-title reveal">Individual & Personal Support</div>
   <div class="grid">
-    <div class="svc reveal"><div class="ic">🧠</div><h3>Individual Therapy & Counselling</h3><p>Professional, confidential support for individuals navigating emotional, psychological, and life challenges — evidence-based and tailored to you. We work with anxiety, depression, burnout, stress, trauma, grief, life transitions, and more. No presenting concern is too small or too complex.</p><div class="tags">In-person · Kilifi · Virtual · Trauma-informed · Confidential</div></div>
-    <div class="svc reveal"><div class="ic">👨‍👩‍👧</div><h3>Family Therapy</h3><p>Structured support for family systems navigating conflict, communication breakdown, grief, or significant life changes. We work with the family as a whole — helping members understand each other, rebuild trust, and develop healthier patterns together.</p><div class="tags">Family systems · Intergenerational · Communication · Healing</div></div>
-    <div class="svc reveal"><div class="ic">🫂</div><h3>Group Therapy & Support Groups</h3><p>Professionally facilitated therapeutic groups for individuals facing shared experiences — grief, anxiety, trauma, life transitions, or recovery. Group settings offer something individual therapy cannot: the understanding of people who truly know what you are carrying.</p><div class="tags">Facilitated · Peer support · Shared experience · Structured</div></div>
-    <div class="svc reveal"><div class="ic">🌱</div><h3>Wellness & Personal Development</h3><p>For individuals seeking growth beyond crisis. Emotional intelligence, stress management, resilience, self-awareness, and life direction support — for those who want to build, not just recover.</p><div class="tags">Growth-focused · Resilience · Self-awareness</div></div>
+    <div class="svc reveal"><figure class="svc-thumb"><img src="images/therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">🧠</div><h3>Individual Therapy & Counselling</h3><p>Professional, confidential support for individuals navigating emotional, psychological, and life challenges — evidence-based and tailored to you. We work with anxiety, depression, burnout, stress, trauma, grief, life transitions, and more. No presenting concern is too small or too complex.</p><div class="tags">In-person · Kilifi · Virtual · Trauma-informed · Confidential</div></div>
+    <div class="svc reveal"><figure class="svc-thumb"><img src="images/therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">👨‍👩‍👧</div><h3>Family Therapy</h3><p>Structured support for family systems navigating conflict, communication breakdown, grief, or significant life changes. We work with the family as a whole — helping members understand each other, rebuild trust, and develop healthier patterns together.</p><div class="tags">Family systems · Intergenerational · Communication · Healing</div></div>
+    <div class="svc reveal"><figure class="svc-thumb"><img src="images/therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">🫂</div><h3>Group Therapy & Support Groups</h3><p>Professionally facilitated therapeutic groups for individuals facing shared experiences — grief, anxiety, trauma, life transitions, or recovery. Group settings offer something individual therapy cannot: the understanding of people who truly know what you are carrying.</p><div class="tags">Facilitated · Peer support · Shared experience · Structured</div></div>
+    <div class="svc reveal"><figure class="svc-thumb"><img src="images/therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">🌱</div><h3>Wellness & Personal Development</h3><p>For individuals seeking growth beyond crisis. Emotional intelligence, stress management, resilience, self-awareness, and life direction support — for those who want to build, not just recover.</p><div class="tags">Growth-focused · Resilience · Self-awareness</div></div>
   </div>
 </section>
 
-<section style="background:#fafafb">
+<section style="background:var(--tint)">
   <div class="cat-title reveal">Organisational & Institutional Services</div>
   <div class="grid">
-    <div class="svc reveal"><div class="ic">🏛️</div><h3>Psychological Consultation</h3><p>Expert mental health support for organisations, schools, and institutions. We assist with mental health program design, clinical supervision and case consultation, staff wellbeing, and safeguarding policy guidance. We work with institutions to build systems that support people — not just respond to crises.</p><div class="tags">Schools · Organisations · Institutions · Supervision · Policy · Program design</div></div>
-    <div class="svc reveal"><div class="ic">🏢</div><h3>Corporate Wellness</h3><p>Organisations thrive when their people do. We work with workplaces and institutions to build cultures of genuine wellbeing — through employee wellness programs, burnout prevention, mental health awareness training, and CSR-aligned initiatives that create measurable, lasting impact.</p><div class="tags">Workplace · Workshops · EAP-style · CSR · Burnout prevention</div></div>
+    <div class="svc reveal"><figure class="svc-thumb"><img src="images/therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">🏛️</div><h3>Psychological Consultation</h3><p>Expert mental health support for organisations, schools, and institutions. We assist with mental health program design, clinical supervision and case consultation, staff wellbeing, and safeguarding policy guidance. We work with institutions to build systems that support people — not just respond to crises.</p><div class="tags">Schools · Organisations · Institutions · Supervision · Policy · Program design</div></div>
+    <div class="svc reveal"><figure class="svc-thumb"><img src="images/therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">🏢</div><h3>Corporate Wellness</h3><p>Organisations thrive when their people do. We work with workplaces and institutions to build cultures of genuine wellbeing — through employee wellness programs, burnout prevention, mental health awareness training, and CSR-aligned initiatives that create measurable, lasting impact.</p><div class="tags">Workplace · Workshops · EAP-style · CSR · Burnout prevention</div></div>
   </div>
 </section>
 
 <section>
   <div class="cat-title reveal">Virtual & Remote Care</div>
   <div class="grid" style="grid-template-columns:1fr;max-width:900px">
-    <div class="svc reveal"><div class="ic">💻</div><h3>Virtual Therapy — Anywhere, Anytime</h3><p>All services are available fully online — the same professional quality, the same confidentiality, no geographic barrier. For clients across Kenya and internationally.</p><div class="tags">Online · Flexible scheduling · Kenya & international · Secure</div></div>
+    <div class="svc reveal"><figure class="svc-thumb"><img src="images/therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">💻</div><h3>Virtual Therapy — Anywhere, Anytime</h3><p>All services are available fully online — the same professional quality, the same confidentiality, no geographic barrier. For clients across Kenya and internationally.</p><div class="tags">Online · Flexible scheduling · Kenya & international · Secure</div></div>
   </div>
 </section>
 
-<section style="background:#fafafb">
-  <div class="glance reveal">
-    <h2>Make Care Possible</h2>
+<section style="background:var(--tint)">
+  <div class="glance reveal final-bg">
+    <h2 class="heading-display">Make Care Possible</h2>
     <p>Through the Nawiri Akili Initiative — funded by donors and partners — subsidised and free sessions are available for anyone who needs support but cannot afford it. No one is turned away. Reach out directly and we will find a way.</p>
     <div class="btns">
       <a href="/walk-with-us.html" class="btn btn-green">💛 Give →</a>
-      <a href="/contact.html" class="btn" style="background:#fff;color:var(--purple-deep)">Contact Us →</a>
+      <a href="/contact.html" class="btn-on-white">Contact Us →</a>
     </div>
   </div>
 </section>
 
-<section>
+<section class="section-crisis-info">
   <div style="text-align:center;max-width:900px;margin:0 auto 40px" class="reveal">
     <span class="eyebrow">Frequently Asked</span>
-    <h2 style="font-size:clamp(32px,4vw,48px);margin-top:18px">Questions, answered honestly</h2>
+    <h2 class="heading-display" style="margin-top:18px">Questions, answered honestly</h2>
   </div>
   <div class="faq">
     <details class="q reveal"><summary>How do I know which service is right for me?</summary><div class="ans">Start with an initial consultation. We listen, then guide you toward the most appropriate support — no pressure, no jargon, no judgment.</div></details>
@@ -131,7 +155,7 @@
 
 <footer>
   <div class="foot-grid">
-    <div><div class="foot-brand">Nawiri Akili-Care Africa</div><p style="font-style:italic;color:#a78bfa;margin-bottom:14px">Nurturing Minds, Transforming Communities</p><p style="font-size:14.5px">"Nawiri" — to bloom.</p></div>
+    <div><div class="foot-brand">Nawiri Akili-Care Africa</div><p style="font-style:italic;color:#c8ead8;margin-bottom:14px">Nurturing Minds, Transforming Communities</p><p style="font-size:15px;font-weight:300">"Nawiri" — to bloom.</p></div>
     <div><h5>Explore</h5><ul><li><a href="/home.html">Home</a></li><li><a href="/about.html">About Us</a></li><li><a href="/services.html">Services</a></li><li><a href="/initiative.html">Initiative</a></li><li><a href="/blog.html">Blog & Insights</a></li></ul></div>
     <div><h5>Take Action</h5><ul><li><a href="/book.html">Book a Session</a></li><li><a href="/walk-with-us.html">🧡 Walk With Us</a></li><li><a href="/contact.html">Partner With Us</a></li><li><a href="/walk-with-us.html">Volunteer</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
     <div><h5>Services</h5><ul><li>Individual Therapy</li><li>Family Therapy</li><li>Group Therapy</li><li>Organisational Wellness</li><li>Virtual Care</li><li>Subsidised or Free Care</li></ul></div>
