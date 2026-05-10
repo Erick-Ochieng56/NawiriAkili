@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Book a Session — Nawiri Akili</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Book a session with Nawiri Akili. Individual, family, group, organisational, or virtual. Subsidised and free options available." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;overflow-x:hidden;background:#fff;color:#1f2937;font-family:'Inter',system-ui,sans-serif;line-height:1.65}
+  a{color:inherit;text-decoration:none}h1,h2,h3,h4{font-family:'Fraunces',serif;line-height:1.18;letter-spacing:-.02em}
+  :root{--purple:#6D28D9;--purple-deep:#4C1D95;--purple-soft:#EDE9FE;--green:#059669;--green-soft:#D1FAE5}
+  nav.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid #f1f1f4}
+  nav.top .wrap{padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--purple-deep)}
+  .brand .dot{width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--green));box-shadow:0 0 0 4px var(--purple-soft)}
+  .links{display:flex;gap:28px;font-size:14px;font-weight:500}.links a{color:#374151;padding:6px 0;position:relative}
+  .links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--green);transition:width .25s}
+  .links a:hover{color:var(--purple)}.links a:hover::after{width:100%}
+  .nav-cta{background:var(--green);color:#fff;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:600}
+  .burger{display:none;background:none;border:0;font-size:24px;color:var(--purple-deep);cursor:pointer}
+  @media(max-width:880px){.links,.nav-cta{display:none}.burger{display:block}.links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:20px 40px}}
+  section{width:100%;padding:90px 40px}
+  .eyebrow{display:inline-block;background:var(--purple-soft);color:var(--purple-deep);padding:8px 14px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  .hero{padding:100px 40px 60px;background:radial-gradient(900px 500px at 80% 0,var(--green-soft),transparent 60%),#fff;text-align:center}
+  .hero h1{font-size:clamp(44px,6vw,86px);font-weight:700;margin:18px auto 16px;max-width:1100px}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--purple),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{max-width:780px;margin:0 auto;color:#4b5563;font-size:18px}
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
+  @media(max-width:880px){.steps{grid-template-columns:1fr}}
+  .stp{padding:36px;border-radius:24px;background:linear-gradient(180deg,#fff,#fafafb);border:1px solid #ececf0;text-align:center;transition:transform .3s}
+  .stp:hover{transform:translateY(-6px)}
+  .stp .n{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--green));color:#fff;font-family:'Fraunces',serif;font-size:28px;font-weight:700;display:grid;place-items:center;margin:0 auto 18px}
+  .stp h3{font-size:22px;color:var(--purple-deep);margin-bottom:10px}
+  .stp p{color:#4b5563;font-size:15px}
+  /* services pick */
+  .svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1300px;margin:0 auto}
+  @media(max-width:980px){.svcs{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.svcs{grid-template-columns:1fr}}
+  .pick{padding:28px;border-radius:20px;background:#fff;border:2px solid #ececf0;cursor:pointer;transition:all .25s}
+  .pick:hover{border-color:var(--purple);transform:translateY(-4px)}
+  .pick h4{font-size:18px;color:var(--purple-deep);margin-bottom:8px}
+  .pick p{color:#4b5563;font-size:14px;margin-bottom:10px}
+  .pick .meta{font-size:12px;color:var(--green);font-style:italic}
+  .pick.free{border-color:var(--green);background:linear-gradient(180deg,#fff,#f0fdf4)}
+  /* form */
+  .form-wrap{background:linear-gradient(180deg,#fff,var(--purple-soft))}
+  form.book{max-width:780px;margin:0 auto;background:#fff;padding:50px;border-radius:28px;box-shadow:0 30px 60px rgba(76,29,149,.1);border:1px solid #ececf0}
+  form.book h2{font-size:32px;color:var(--purple-deep);margin-bottom:8px}
+  form.book .sub{color:#6b7280;margin-bottom:30px}
+  .field{margin-bottom:22px}
+  .field label{display:block;font-weight:600;color:#374151;margin-bottom:8px;font-size:14px}
+  .field input,.field select,.field textarea{width:100%;padding:14px 16px;border:1.5px solid #e5e7eb;border-radius:14px;font-size:15px;font-family:Inter;transition:border-color .2s,box-shadow .2s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--purple);box-shadow:0 0 0 4px rgba(109,40,217,.08)}
+  .field textarea{resize:vertical;min-height:110px}
+  .radio-row{display:flex;gap:10px;flex-wrap:wrap}
+  .radio-row label{flex:1;min-width:120px;padding:12px 16px;border:1.5px solid #e5e7eb;border-radius:12px;cursor:pointer;text-align:center;font-size:14px;font-weight:500;color:#374151;transition:all .2s}
+  .radio-row input{display:none}
+  .radio-row input:checked + span{}
+  .radio-row label:has(input:checked){border-color:var(--purple);background:var(--purple-soft);color:var(--purple-deep)}
+  .submit{width:100%;padding:16px;border-radius:14px;border:0;background:var(--purple);color:#fff;font-weight:600;font-size:16px;cursor:pointer;transition:transform .2s,background .2s}
+  .submit:hover{background:var(--purple-deep);transform:translateY(-1px)}
+  .note{margin-top:20px;text-align:center;font-style:italic;color:#6b7280;font-size:14px}
+  footer{background:#0f0a1a;color:#cbb6ff;padding:80px 40px 30px}
+  .foot-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px}
+  @media(max-width:880px){.foot-grid{grid-template-columns:1fr 1fr}}
+  footer h5{color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:18px}
+  footer ul{list-style:none}footer li{margin-bottom:10px;font-size:14.5px}footer a:hover{color:#6ee7b7}
+  .foot-brand{font-family:'Fraunces',serif;color:#fff;font-size:24px;margin-bottom:12px}
+  .copy{max-width:1400px;margin:60px auto 0;padding-top:30px;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-size:13px;color:#7c6ba8}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <a href="/home.html" class="brand"><span class="dot"></span> Nawiri Akili</a>
+  <button class="burger" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
+  <div class="links"><a href="/home.html">Home</a><a href="/about.html">About</a><a href="/services.html">Services</a><a href="/initiative.html">Initiative</a><a href="/walk-with-us.html">Walk With Us</a><a href="/blog.html">Blog</a><a href="/contact.html">Contact</a></div>
+  <a href="#book" class="nav-cta">↓ Book Now</a>
+</div></nav>
+
+<section class="hero">
+  <span class="eyebrow">Book a Session</span>
+  <h1>Your journey to <span class="grad">wellness starts here.</span></h1>
+  <p>Your first step does not need to be perfect. It just needs to be a step. We will meet you exactly where you are — without judgment, without pressure, without conditions.</p>
+</section>
+
+<section>
+  <div class="steps">
+    <div class="stp reveal"><div class="n">1</div><h3>Choose</h3><p>Individual, family, group, consultation, or virtual. Or tell us you are not sure yet — that is a perfectly fine place to start.</p></div>
+    <div class="stp reveal"><div class="n">2</div><h3>Schedule</h3><p>Pick a time. In-person in Kilifi or online from anywhere in Kenya or internationally.</p></div>
+    <div class="stp reveal"><div class="n">3</div><h3>Begin</h3><p>One conversation. That is where it begins.</p></div>
+  </div>
+</section>
+
+<section style="background:#fafafb">
+  <div style="text-align:center;max-width:1000px;margin:0 auto 50px" class="reveal">
+    <span class="eyebrow">Available Services</span>
+    <h2 style="font-size:clamp(30px,4vw,46px);margin-top:18px;color:var(--purple-deep)">Choose what feels right</h2>
+  </div>
+  <div class="svcs">
+    <div class="pick reveal" onclick="document.getElementById('svc').value='Individual therapy';document.getElementById('book').scrollIntoView({behavior:'smooth'})"><h4>Individual Therapy</h4><p>Evidence-based one-on-one support. In-person or virtual.</p><div class="meta">Anxiety · Trauma · Depression · Burnout · Life transitions</div></div>
+    <div class="pick reveal" onclick="document.getElementById('svc').value='Family therapy';document.getElementById('book').scrollIntoView({behavior:'smooth'})"><h4>Family Therapy</h4><p>Support for family systems navigating conflict, grief, or significant change.</p><div class="meta">Family systems · Communication · Intergenerational</div></div>
+    <div class="pick reveal" onclick="document.getElementById('svc').value='Group therapy';document.getElementById('book').scrollIntoView({behavior:'smooth'})"><h4>Group Therapy</h4><p>Professionally facilitated groups for shared experiences.</p><div class="meta">Grief · Anxiety · Trauma · Transitions</div></div>
+    <div class="pick reveal" onclick="document.getElementById('svc').value='Organisational consultation';document.getElementById('book').scrollIntoView({behavior:'smooth'})"><h4>Psychological Consultation</h4><p>Mental health expertise for organisations, schools, and institutions.</p><div class="meta">Program design · Supervision · Institutional wellness</div></div>
+    <div class="pick reveal" onclick="document.getElementById('svc').value='Virtual session';document.getElementById('book').scrollIntoView({behavior:'smooth'})"><h4>Virtual Session</h4><p>Online from anywhere — Kenya or internationally. All services available.</p><div class="meta">Flexible · Secure · All services</div></div>
+    <div class="pick free reveal" onclick="document.getElementById('svc').value='I would like to support the Initiative';document.getElementById('book').scrollIntoView({behavior:'smooth'})"><h4 style="color:#065f46">Subsidised or Free Support</h4><p><strong>Cannot afford care?</strong> We will find a way. Donor-funded sessions available through the Initiative. No one is turned away.</p><div class="meta">Free sessions · Subsidised care · Emergency support · No barriers</div></div>
+  </div>
+</section>
+
+<section id="book" class="form-wrap">
+  <form class="book reveal" onsubmit="event.preventDefault();this.innerHTML='<h2 style=&quot;color:var(--green);text-align:center&quot;>Thank you ✓</h2><p style=&quot;text-align:center;color:#4b5563&quot;>We will be in touch within 24–48 hours. All information shared is strictly confidential.</p>'">
+    <h2>Booking Form</h2>
+    <p class="sub">All information shared is strictly confidential.</p>
+    <div class="field"><label>Full name</label><input type="text" required placeholder="Your name"></div>
+    <div class="field"><label>Email address</label><input type="email" required placeholder="you@example.com"></div>
+    <div class="field"><label>Phone number <span style="color:#9ca3af">(optional)</span></label><input type="tel" placeholder="+254 ..."></div>
+    <div class="field"><label>Service</label>
+      <select id="svc" required>
+        <option value="">Select a service…</option>
+        <option>Individual therapy</option>
+        <option>Family therapy</option>
+        <option>Group therapy</option>
+        <option>Organisational consultation</option>
+        <option>Virtual session</option>
+        <option>I would like to support the Initiative</option>
+        <option>Not sure yet</option>
+      </select>
+    </div>
+    <div class="field"><label>Tell us a little about what you are looking for <span style="color:#9ca3af">(optional — no wrong answer)</span></label><textarea placeholder="Anything you'd like us to know..."></textarea></div>
+    <div class="field"><label>Preferred contact method</label>
+      <div class="radio-row">
+        <label><input type="radio" name="contact" checked><span>📧 Email</span></label>
+        <label><input type="radio" name="contact"><span>💬 WhatsApp</span></label>
+        <label><input type="radio" name="contact"><span>📞 Phone call</span></label>
+      </div>
+    </div>
+    <button type="submit" class="submit">Request Booking →</button>
+    <p class="note">All information shared is strictly confidential. We will be in touch within 24–48 hours.</p>
+  </form>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div><div class="foot-brand">Nawiri Akili-Care Africa</div><p style="font-style:italic;color:#a78bfa;margin-bottom:14px">Nurturing Minds, Transforming Communities</p><p style="font-size:14.5px">"Nawiri" — to bloom.</p></div>
+    <div><h5>Explore</h5><ul><li><a href="/home.html">Home</a></li><li><a href="/about.html">About Us</a></li><li><a href="/services.html">Services</a></li><li><a href="/initiative.html">Initiative</a></li><li><a href="/blog.html">Blog & Insights</a></li></ul></div>
+    <div><h5>Take Action</h5><ul><li><a href="/book.html">Book a Session</a></li><li><a href="/walk-with-us.html">🧡 Walk With Us</a></li><li><a href="/contact.html">Partner With Us</a></li><li><a href="/walk-with-us.html">Volunteer</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+    <div><h5>Services</h5><ul><li>Individual Therapy</li><li>Family Therapy</li><li>Group Therapy</li><li>Organisational Wellness</li><li>Virtual Care</li><li>Subsidised or Free Care</li></ul></div>
+  </div>
+  <div class="copy">© 2025 Nawiri Akili-Care Africa · Kilifi, Kenya · Confidential · Compassionate · Accessible</div>
+</footer>
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*60)+'ms';io.observe(el)});
+</script>
+</body></html>

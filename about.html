@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>About Us — Nawiri Akili-Care Africa</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="A consultancy and a community — built together. Vision, mission, values, and the founder of Nawiri Akili-Care Africa." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;overflow-x:hidden;background:#fff;color:#1f2937;font-family:'Inter',system-ui,sans-serif;line-height:1.65}
+  a{color:inherit;text-decoration:none}h1,h2,h3,h4{font-family:'Fraunces',serif;line-height:1.18;letter-spacing:-.02em;color:#1f2937}
+  :root{--purple:#6D28D9;--purple-deep:#4C1D95;--purple-soft:#EDE9FE;--green:#059669;--green-soft:#D1FAE5;--ink:#1F2937;--muted:#6B7280}
+  nav.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid #f1f1f4;width:100%}
+  nav.top .wrap{padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--purple-deep)}
+  .brand .dot{width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--green));box-shadow:0 0 0 4px var(--purple-soft)}
+  .links{display:flex;gap:28px;font-size:14px;font-weight:500}
+  .links a{color:#374151;padding:6px 0;position:relative}
+  .links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--green);transition:width .25s}
+  .links a:hover{color:var(--purple)}.links a:hover::after{width:100%}
+  .nav-cta{background:var(--purple);color:#fff;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:600}
+  .nav-cta:hover{background:var(--purple-deep)}
+  .burger{display:none;background:none;border:0;font-size:24px;color:var(--purple-deep);cursor:pointer}
+  @media(max-width:880px){.links,.nav-cta{display:none}.burger{display:block}.links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:20px 40px}}
+  section{width:100%;padding:90px 40px}
+  .eyebrow{display:inline-block;background:var(--purple-soft);color:var(--purple-deep);padding:8px 14px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:600;font-size:14.5px;cursor:pointer;border:0;transition:transform .2s}
+  .btn-primary{background:var(--purple);color:#fff;box-shadow:0 14px 30px rgba(109,40,217,.3)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-green{background:var(--green);color:#fff}
+  /* hero */
+  .hero{padding:100px 40px 60px;background:radial-gradient(900px 500px at 80% 0,var(--purple-soft),transparent 60%),#fff;text-align:center}
+  .hero h1{font-size:clamp(44px,6vw,86px);font-weight:700;margin:18px auto 18px;max-width:1100px}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--purple),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lede{max-width:760px;margin:0 auto;color:#4b5563;font-size:18px}
+  /* name section */
+  .name{background:linear-gradient(180deg,#fff,var(--purple-soft))}
+  .name-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:center}
+  @media(max-width:900px){.name-grid{grid-template-columns:1fr}}
+  .name h2{font-size:46px;margin-bottom:18px}
+  .quote-card{padding:40px;border-radius:28px;background:#fff;border-left:6px solid var(--green);box-shadow:0 30px 60px rgba(76,29,149,.08);font-family:'Fraunces',serif;font-style:italic;font-size:21px;color:#374151;line-height:1.55}
+  /* who */
+  .who-grid{max-width:1300px;margin:50px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  @media(max-width:900px){.who-grid{grid-template-columns:1fr}}
+  .who-card{padding:40px;border-radius:24px;background:#fff;border:1px solid #ececf0;transition:transform .3s,box-shadow .3s}
+  .who-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.06)}
+  .who-card h3{font-size:24px;color:var(--purple-deep);margin-bottom:14px}
+  /* vmv */
+  .vmv{background:#fafafb}
+  .vmv-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:900px){.vmv-grid{grid-template-columns:1fr}}
+  .vmv-card{padding:34px;border-radius:24px;background:#fff;border-top:4px solid var(--purple);transition:transform .3s,border-color .3s}
+  .vmv-card:nth-child(2){border-color:var(--green)}
+  .vmv-card:nth-child(3){border-color:#f59e0b}
+  .vmv-card:hover{transform:translateY(-6px)}
+  .vmv-card h3{font-size:22px;margin-bottom:12px;color:var(--purple-deep)}
+  /* values */
+  .values-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:900px){.values-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.values-grid{grid-template-columns:1fr}}
+  .val{padding:28px;border-radius:20px;background:linear-gradient(180deg,#fff,#fafafb);border:1px solid #ececf0;transition:transform .3s,background .3s}
+  .val:hover{background:linear-gradient(180deg,#fff,var(--purple-soft));transform:translateY(-4px)}
+  .val .ic{width:44px;height:44px;border-radius:12px;background:var(--green-soft);display:grid;place-items:center;font-size:20px;margin-bottom:14px}
+  .val h4{color:var(--purple-deep);font-size:18px;margin-bottom:8px}
+  .val p{font-size:14.5px;color:#4b5563}
+  /* founder */
+  .founder{background:linear-gradient(135deg,var(--purple-deep),var(--purple));color:#fff;border-radius:36px;max-width:1300px;margin:0 auto;padding:70px 50px;position:relative;overflow:hidden}
+  .founder::after{content:"";position:absolute;width:400px;height:400px;background:var(--green);border-radius:50%;opacity:.25;filter:blur(80px);right:-100px;bottom:-100px}
+  .founder .eyebrow{background:rgba(255,255,255,.15);color:#fff}
+  .founder h2{color:#fff;font-size:clamp(34px,4vw,52px);margin:18px 0 22px;max-width:800px;position:relative}
+  .founder p{color:#e9d5ff;max-width:880px;font-size:16.5px;margin-bottom:18px;position:relative}
+  .founder .name{color:#6ee7b7;font-weight:600}
+  /* footer */
+  .final{background:var(--purple-deep);color:#fff;text-align:center;padding:100px 40px}
+  .final h2{color:#fff;font-size:clamp(30px,3.5vw,46px);max-width:900px;margin:0 auto 28px}
+  footer{background:#0f0a1a;color:#cbb6ff;padding:80px 40px 30px}
+  .foot-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px}
+  @media(max-width:880px){.foot-grid{grid-template-columns:1fr 1fr}}
+  footer h5{color:#fff;font-family:'Inter',sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:18px}
+  footer ul{list-style:none}footer li{margin-bottom:10px;font-size:14.5px}
+  footer a:hover{color:#6ee7b7}.foot-brand{font-family:'Fraunces',serif;color:#fff;font-size:24px;margin-bottom:12px}
+  .copy{max-width:1400px;margin:60px auto 0;padding-top:30px;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-size:13px;color:#7c6ba8}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <a href="/home.html" class="brand"><span class="dot"></span> Nawiri Akili</a>
+  <button class="burger" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
+  <div class="links">
+    <a href="/home.html">Home</a><a href="/about.html">About</a><a href="/services.html">Services</a>
+    <a href="/initiative.html">Initiative</a><a href="/walk-with-us.html">Walk With Us</a>
+    <a href="/blog.html">Blog</a><a href="/contact.html">Contact</a>
+  </div>
+  <a href="/book.html" class="nav-cta">Book a Session</a>
+</div></nav>
+
+<section class="hero">
+  <span class="eyebrow">About Us</span>
+  <h1>A consultancy and a <span class="grad">community</span> — built together</h1>
+  <p class="lede">Nawiri Akili-Care Africa — Nurturing Minds, Transforming Communities.</p>
+</section>
+
+<section class="name">
+  <div class="name-grid">
+    <div class="reveal">
+      <span class="eyebrow">The Name</span>
+      <h2>What "Nawiri" means</h2>
+      <p style="color:#4b5563">"Nawiri" — to bloom. <em>Empowering growth, renewal and a mentally flourishing community.</em></p>
+    </div>
+    <div class="quote-card reveal">"Nawiri" means to bloom. It is a word that carries patience — the understanding that growth does not happen all at once, but in seasons, and with the right conditions. Rooted, gradual, and real. We exist to create those conditions — because mental wellness is not a destination or a cure. It is a living, ongoing process of becoming. For individuals ready to begin. For communities that have been waiting too long.</div>
+  </div>
+</section>
+
+<section>
+  <div style="max-width:1100px;margin:0 auto;text-align:center" class="reveal">
+    <span class="eyebrow">Who We Are</span>
+    <h2 style="font-size:clamp(32px,4vw,52px);margin:18px 0">A consultancy and a community — built together</h2>
+    <p style="color:#4b5563;font-size:17px">Together they form one ecosystem: professional excellence and community access, connected by a shared belief that mental wellness belongs to everyone.</p>
+  </div>
+  <div class="who-grid">
+    <div class="who-card reveal">
+      <h3>Nawiri Akili-Care Africa</h3>
+      <p>A professional mental health consultancy delivering evidence-based therapy, psychological consultation, and organisational wellness rooted in local understanding and global best practice.</p>
+    </div>
+    <div class="who-card reveal" style="border-top:4px solid var(--green)">
+      <h3 style="color:#065f46">Nawiri Akili Initiative</h3>
+      <p>Our community impact arm — extending the mission into schools and communities through education, awareness, and subsidised or free care for those who cannot afford professional support.</p>
+    </div>
+  </div>
+</section>
+
+<section class="vmv">
+  <div style="max-width:1100px;margin:0 auto 50px;text-align:center" class="reveal">
+    <span class="eyebrow">Vision · Mission · Approach</span>
+    <h2 style="font-size:clamp(32px,4vw,52px);margin-top:18px">What we stand for</h2>
+  </div>
+  <div class="vmv-grid">
+    <div class="vmv-card reveal"><h3>Our Vision</h3><p>A future where mental wellness is understood, accessible, and actively supported across Africa and beyond — where blooming is not the exception but the expectation.</p></div>
+    <div class="vmv-card reveal"><h3>Our Mission</h3><p>To provide professional, evidence-based mental health care, and to extend that care into communities through education, subsidised or free support, and lasting partnerships — for a mentally flourishing community.</p></div>
+    <div class="vmv-card reveal"><h3>Our Approach</h3><p>Evidence-based. Community-centered. Culturally grounded. We build care that belongs here — rooted in African reality, informed by global best practice, and committed to access above all else.</p></div>
+  </div>
+</section>
+
+<section>
+  <div style="max-width:1100px;margin:0 auto 50px;text-align:center" class="reveal">
+    <span class="eyebrow">Values</span>
+    <h2 style="font-size:clamp(32px,4vw,52px);margin-top:18px">What guides us</h2>
+  </div>
+  <div class="values-grid">
+    <div class="val reveal"><div class="ic">🤝</div><h4>Dignity</h4><p>Every person who reaches out is met with full humanity — no judgment, no conditions.</p></div>
+    <div class="val reveal"><div class="ic">🚪</div><h4>Access</h4><p>Care that cannot be reached is not care. We remove every barrier we can.</p></div>
+    <div class="val reveal"><div class="ic">🫂</div><h4>Community</h4><p>Healing happens in relationship. We believe in the collective capacity to hold and uplift.</p></div>
+    <div class="val reveal"><div class="ic">📚</div><h4>Evidence</h4><p>Our practice is grounded in psychological science, adapted to real local contexts.</p></div>
+    <div class="val reveal"><div class="ic">🌳</div><h4>Rootedness</h4><p>African in understanding, language, and approach. We build care that belongs here.</p></div>
+    <div class="val reveal"><div class="ic">🗣️</div><h4>Openness</h4><p>We actively break the silence around mental health — through education and trust.</p></div>
+  </div>
+</section>
+
+<section style="background:#fafafb">
+  <div class="founder reveal">
+    <span class="eyebrow">Founder</span>
+    <h2>Built from experience. Driven by purpose.</h2>
+    <p>Nawiri was born from a professional understanding, a caring heart, and a mind that has firsthand known the weight of struggling without support.</p>
+    <p><span class="name">Peris Gichuki</span> is a licensed psychologist with over five years of clinical and community experience spanning psychotherapy, psychosocial counselling, trauma-informed care, addiction rehabilitation, GBV-integrated support, clinical supervision, and community outreach. She has worked with individuals, families, groups, institutions, and communities across clinical settings, rehabilitation centres, schools, and grassroots programs — bringing the same standard of care to every context and every person she has served.</p>
+    <p>She was someone who grew up wishing she had the language to name what she felt, the guidance to make sense of it, and a safe space to speak it without fear. That wish became a vision. And that vision became Nawiri.</p>
+    <p>Built for the generation coming up. Built for communities that have been waiting too long. Built on the belief that professional care and open, barrier-free access are not two separate things — they are two halves of the same commitment.</p>
+  </div>
+</section>
+
+<section class="final">
+  <h2>Ready to take the first step?</h2>
+  <a href="/book.html" class="btn btn-green">Book a Session</a>
+  <a href="/walk-with-us.html" class="btn" style="background:#fff;color:var(--purple-deep);margin-left:12px">❤️ Walk With Us</a>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div><div class="foot-brand">Nawiri Akili-Care Africa</div><p style="font-style:italic;color:#a78bfa;margin-bottom:14px">Nurturing Minds, Transforming Communities</p><p style="font-size:14.5px">"Nawiri" — to bloom. Empowering growth, renewal and a mentally flourishing community.</p></div>
+    <div><h5>Explore</h5><ul><li><a href="/home.html">Home</a></li><li><a href="/about.html">About Us</a></li><li><a href="/services.html">Services</a></li><li><a href="/initiative.html">Initiative</a></li><li><a href="/blog.html">Blog & Insights</a></li></ul></div>
+    <div><h5>Take Action</h5><ul><li><a href="/book.html">Book a Session</a></li><li><a href="/walk-with-us.html">🧡 Walk With Us</a></li><li><a href="/contact.html">Partner With Us</a></li><li><a href="/walk-with-us.html">Volunteer</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+    <div><h5>Services</h5><ul><li>Individual Therapy</li><li>Family Therapy</li><li>Group Therapy</li><li>Organisational Wellness</li><li>Virtual Care</li><li>Subsidised or Free Care</li></ul></div>
+  </div>
+  <div class="copy">© 2025 Nawiri Akili-Care Africa · Kilifi, Kenya · Confidential · Compassionate · Accessible</div>
+</footer>
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*60)+'ms';io.observe(el)});
+</script>
+</body></html>
