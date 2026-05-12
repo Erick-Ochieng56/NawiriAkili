@@ -14,11 +14,11 @@
   html{font-size:17px}
   :root{
     --primary:#2a8c5a;--brand-dark:#1a6640;--brand-darkest:#112b1a;
-    --tint:#f0f9f5;--purple:#4f46a8;--purple-tint:#f0effe;
+    --tint:#f0f9f5;--purple:#4f46a8;--purple-tint:#e6e2fb;
     --blue:#1565a8;--blue-tint:#eaf4fd;
     --white:#ffffff;--body:#4a5568;--border:#e2ede4;
     --chip-green-bg:#c8ead8;--chip-green-fg:#1a4d32;
-    --chip-purple-bg:#ebe9fd;--chip-purple-fg:#312e81;
+    --chip-purple-bg:#ddd6f9;--chip-purple-fg:#312e81;
     --chip-blue-bg:#dbeefe;--chip-blue-fg:#0c4a8a;
     --purple-deep:#312e81;--green:#2a8c5a;
     --hero-image:url("https://images.unsplash.com/photo-1470058869978-29229b574965?ixlib=rb-4.1.0&auto=format&fit=crop&w=1920&q=80");
@@ -46,19 +46,19 @@
   @media(max-width:880px){.links,.nav-cta{display:none}.burger{display:block}.links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--white);flex-direction:column;padding:1.25rem 2.5rem;gap:14px;border-bottom:0.5px solid var(--border)}}
   @media(max-width:640px){.links.open{padding:1.25rem}}
 
-  .hero{position:relative;width:100%;min-height:92vh;display:flex;align-items:center;overflow:hidden}
+  .hero{position:relative;width:100%;min-height:0;display:flex;align-items:flex-start;overflow-x:hidden;overflow-y:visible;padding-block:clamp(1.25rem,2.5vh,2rem)}
   .hero .blob{display:none}
-  .hero-grid{position:relative;z-index:2;width:100%;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2.5rem,5vw,4.5rem);align-items:center;padding:4rem min(5vw,3.25rem)}
-  @media(max-width:980px){.hero-grid{grid-template-columns:1fr;padding:3rem 1.35rem}}
+  .hero-grid{position:relative;z-index:2;width:100%;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.75rem,4vw,3rem);align-items:start;padding:clamp(1.25rem,2vw,1.75rem) min(5vw,3.25rem)}
+  @media(max-width:980px){.hero-grid{grid-template-columns:1fr;padding:1.25rem 1.15rem}}
   .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--chip-green-bg);color:var(--chip-green-fg);padding:9px 16px;border-radius:100px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
   .eyebrow .pulse-dot{display:none}
   .eyebrow--purple{background:var(--chip-purple-bg);color:var(--chip-purple-fg)}
-  h1.headline{margin:1.5rem 0 1.25rem}
+  h1.headline{margin:1rem 0 0.875rem}
   h1.headline .grad{color:var(--brand-dark);font-style:italic}
   .lede{font-size:1.125rem;color:var(--body);max-width:38rem;font-weight:400}
   .lede mark{background:var(--chip-green-bg);color:var(--chip-green-fg);font-weight:600;padding:0 4px;font-family:'Nunito',sans-serif}
-  .quote{margin-top:2rem;font-family:'DM Serif Display',serif;font-style:italic;font-size:1.25rem;color:var(--brand-dark)}
-  .cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:2.5rem}
+  .quote{margin-top:1.25rem;font-family:'DM Serif Display',serif;font-style:italic;font-size:1.25rem;color:var(--brand-dark)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:1.5rem}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 30px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:15px;cursor:pointer;border:0;transition:background .2s,color .2s}
   .btn-primary{background:var(--primary);color:var(--white)}
   .btn-primary:hover{background:var(--brand-dark)}
@@ -171,10 +171,18 @@
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background: rgba(240, 249, 245, 0.72);
+    background: color-mix(
+      in srgb,
+      rgba(240, 249, 245, 0.72) 88%,
+      rgba(79, 70, 168, 0.14) 12%
+    );
   }
   header.hero.hero-bg.hero-bg--soft::after {
-    background: rgba(240, 249, 245, 0.78);
+    background: color-mix(
+      in srgb,
+      rgba(240, 249, 245, 0.78) 88%,
+      rgba(79, 70, 168, 0.12) 12%
+    );
   }
   header.hero.hero-bg > .hero-grid,
   header.hero.hero-bg > * {
@@ -183,6 +191,27 @@
   }
   header.hero.hero-bg .hero-grid {
     z-index: 2;
+  }
+  /* Image-only hero card: full photo, no crop (overrides site.css .hero-figure) */
+  .hero-card--image-only {
+    padding: 0;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .hero-card--image-only .hero-figure {
+    margin: 0;
+    border-radius: 0;
+    border: 0;
+    aspect-ratio: auto;
+    background: var(--tint);
+  }
+  .hero-card--image-only .hero-figure img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    display: block;
+    object-fit: contain;
+    object-position: center;
   }
 </style>
 </head>
@@ -220,18 +249,10 @@
         <a href="/initiative.html" class="btn btn-ghost">Nawiri Akili Initiative →</a>
       </div>
     </div>
-    <div class="hero-card">
+    <div class="hero-card hero-card--image-only">
       <figure class="hero-figure">
-        <img src="images/therapy.jpg" width="600" height="450" alt="A supportive, confidential conversation in a welcoming space." loading="eager" decoding="async" fetchpriority="high" />
+        <img src="images/nawiri_group.png" width="600" height="450" alt="A supportive, confidential conversation in a welcoming space." loading="eager" decoding="async" fetchpriority="high" />
       </figure>
-      <h3>One vision. Two arms.</h3>
-      <p>Professional consultancy meets community impact — built together for a future where blooming is the expectation, not the exception.</p>
-      <div class="mini">
-        <span class="chip">Evidence-based</span>
-        <span class="chip">Confidential</span>
-        <span class="chip">Community-rooted</span>
-        <span class="chip">Kilifi · Kenya · Worldwide</span>
-      </div>
     </div>
   </div>
 </header>
