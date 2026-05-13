@@ -110,15 +110,19 @@ nav.top .brand .brand-logo {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Brand: a bit more purple (works with page :root --purple* tokens)          */
+/* Brand mix: ~60% green family / ~40% purple (borders, overlays, accents)    */
 /* -------------------------------------------------------------------------- */
 
 nav.top {
-  border-bottom-color: color-mix(in srgb, var(--border, #e2ede4) 55%, var(--purple, #4f46a8) 45%);
+  border-bottom-color: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--border, #e2ede4) 70%, var(--primary, #3b832a) 30%) 60%,
+    var(--purple, #421f66) 40%
+  );
 }
 
 nav.top .links a:hover {
-  color: var(--purple, #4f46a8);
+  color: color-mix(in srgb, var(--primary, #3b832a) 60%, var(--purple, #421f66) 40%);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -129,7 +133,7 @@ nav.top .links a:hover {
 .hero-bg {
   position: relative;
   isolation: isolate;
-  background-color: var(--tint, #f0f9f5);
+  background-color: var(--tint, #e7f0e3);
   background-image: var(--hero-image, none);
   background-size: cover;
   background-position: center;
@@ -142,8 +146,8 @@ nav.top .links a:hover {
   inset: 0;
   background: color-mix(
     in srgb,
-    var(--hero-overlay, rgba(240, 249, 245, 0.72)) 88%,
-    rgba(79, 70, 168, 0.14) 12%
+    var(--hero-overlay, rgba(228, 238, 224, 0.76)) 60%,
+    rgba(66, 31, 102, 0.24) 40%
   );
   z-index: 0;
   pointer-events: none;
@@ -158,17 +162,17 @@ nav.top .links a:hover {
 .hero-bg--soft::after {
   background: color-mix(
     in srgb,
-    var(--hero-overlay-strong, rgba(240, 249, 245, 0.78)) 88%,
-    rgba(79, 70, 168, 0.12) 12%
+    var(--hero-overlay-strong, rgba(228, 238, 224, 0.82)) 60%,
+    rgba(66, 31, 102, 0.22) 40%
   );
 }
 
-/* Initiative / purple-tint hero */
+/* Initiative hero: still purple-forward, with explicit 60/40 green-violet / ink */
 .hero-bg--purple::after {
   background: color-mix(
     in srgb,
-    var(--hero-overlay-purple, rgba(240, 239, 254, 0.9)) 86%,
-    rgba(79, 70, 168, 0.16) 14%
+    var(--hero-overlay-purple, rgba(232, 226, 244, 0.93)) 60%,
+    rgba(66, 31, 102, 0.32) 40%
   );
 }
 
@@ -176,7 +180,7 @@ nav.top .links a:hover {
 .banner-visual {
   position: relative;
   isolation: isolate;
-  background-color: var(--blue-tint, #eaf4fd);
+  background-color: var(--blue-tint, #e2eef8);
   background-image: var(--banner-image, none);
   background-size: cover;
   background-position: center;
@@ -188,8 +192,8 @@ nav.top .links a:hover {
   inset: 0;
   background: color-mix(
     in srgb,
-    var(--banner-overlay, rgba(234, 244, 253, 0.92)) 82%,
-    rgba(79, 70, 168, 0.1) 18%
+    var(--banner-overlay, rgba(224, 234, 248, 0.94)) 60%,
+    rgba(66, 31, 102, 0.2) 40%
   );
   z-index: 0;
   pointer-events: none;
@@ -204,7 +208,7 @@ nav.top .links a:hover {
 .final-bg {
   position: relative;
   isolation: isolate;
-  background-color: var(--brand-dark, #1a6640);
+  background-color: var(--brand-dark, #264f1e);
   background-image: var(--final-bg, none);
   background-size: cover;
   background-position: center;
@@ -214,7 +218,11 @@ nav.top .links a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--final-overlay, rgba(26, 102, 64, 0.92));
+  background: color-mix(
+    in srgb,
+    var(--final-overlay, rgba(38, 80, 30, 0.94)) 60%,
+    rgba(66, 31, 102, 0.42) 40%
+  );
   z-index: 0;
   pointer-events: none;
 }
@@ -244,8 +252,12 @@ figure.svc-thumb {
   margin: 0 0 1rem;
   border-radius: 14px;
   overflow: hidden;
-  border: 0.5px solid color-mix(in srgb, var(--border, #e2ede4) 78%, var(--purple, #4f46a8) 22%);
-  background: color-mix(in srgb, var(--tint, #f0f9f5) 62%, var(--purple-tint, #e6e2fb) 38%);
+  border: 0.5px solid color-mix(
+    in srgb,
+    color-mix(in srgb, var(--border, #e2ede4) 70%, var(--primary, #3b832a) 30%) 60%,
+    var(--purple, #421f66) 40%
+  );
+  background: color-mix(in srgb, var(--tint, #e7f0e3) 60%, var(--purple-tint, #e4daee) 40%);
 }
 
 figure.svc-thumb img {
@@ -285,9 +297,17 @@ figure.svc-thumb img {
 
 
 .section-crisis-info {
-  background: color-mix(in srgb, var(--blue-tint, #eaf4fd) 72%, var(--purple-tint, #e6e2fb) 28%);
-  border-top: 0.5px solid color-mix(in srgb, var(--border, #e2ede4) 70%, var(--purple, #4f46a8) 30%);
-  border-bottom: 0.5px solid color-mix(in srgb, var(--border, #e2ede4) 70%, var(--purple, #4f46a8) 30%);
+  background: color-mix(in srgb, var(--blue-tint, #e2eef8) 60%, var(--purple-tint, #e4daee) 40%);
+  border-top: 0.5px solid color-mix(
+    in srgb,
+    color-mix(in srgb, var(--border, #e2ede4) 70%, var(--primary, #3b832a) 30%) 60%,
+    var(--purple, #421f66) 40%
+  );
+  border-bottom: 0.5px solid color-mix(
+    in srgb,
+    color-mix(in srgb, var(--border, #e2ede4) 70%, var(--primary, #3b832a) 30%) 60%,
+    var(--purple, #421f66) 40%
+  );
   padding: 4rem min(5vw, 3.25rem);
 }
 @media (max-width: 640px) {
@@ -305,7 +325,7 @@ h2.heading-display {
   font-size: clamp(1.625rem, 2.6vw, 2.05rem);
   font-weight: 400;
   line-height: 1.28;
-  color: color-mix(in srgb, var(--brand-darkest, #112b1a) 84%, var(--purple, #4f46a8) 16%);
+  color: color-mix(in srgb, var(--brand-darkest, #142611) 60%, var(--purple, #421f66) 40%);
 }
 
 /* Crisis / global-messaging banner (ocean headline) — beats .banner h2 { font-size } from page CSS */
@@ -330,9 +350,13 @@ h2.heading-display {
 }
 
 footer {
-  border-top: 2px solid color-mix(in srgb, var(--purple, #4f46a8) 70%, var(--primary, #2a8c5a) 30%);
+  border-top: 2px solid color-mix(in srgb, var(--primary, #3b832a) 60%, var(--purple, #421f66) 40%);
 }
 
 .cats .cat {
-  border: 0.5px solid color-mix(in srgb, var(--border, #e2ede4) 72%, var(--purple, #4f46a8) 28%);
+  border: 0.5px solid color-mix(
+    in srgb,
+    color-mix(in srgb, var(--border, #e2ede4) 70%, var(--primary, #3b832a) 30%) 60%,
+    var(--purple, #421f66) 40%
+  );
 }
