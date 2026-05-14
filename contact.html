@@ -17,7 +17,7 @@
     --white:#ffffff;--body:#4a5568;--border:#e2ede4;
     --chip-green-bg:#cde8c4;--chip-green-fg:#1a4018;
     --purple-deep:#251238;--green:#449332;
-    --hero-image:url("https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80");
+    --hero-image:url("images/banner/contact.jpg");
     --final-bg:url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1920&q=80");
   }
   html,body{width:100%;overflow-x:hidden;background:var(--white);color:var(--body);font-family:'Nunito',sans-serif;font-weight:400;line-height:1.8}
@@ -40,9 +40,11 @@
   @media(max-width:880px){.links,.nav-cta{display:none}.burger{display:block}.links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--white);flex-direction:column;padding:1.25rem 2.5rem;border-bottom:0.5px solid var(--border)}}
 
   .eyebrow{display:inline-block;background:var(--chip-green-bg);color:var(--chip-green-fg);padding:8px 14px;border-radius:100px;font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+  .eyebrow--purple{background:var(--chip-purple-bg);color:var(--chip-purple-fg)}
   .hero{padding:4rem 2.5rem 3rem;text-align:center;border-bottom:0.5px solid var(--border)}
+  .hero.hero-bg{border-bottom-color:color-mix(in srgb,var(--purple) 35%,var(--border) 65%)}
   .hero h1{margin:1rem auto 16px}
-  .hero h1 .grad{color:var(--brand-dark);font-style:italic}
+  .hero h1 .grad{color:var(--purple);font-style:italic}
   .hero p{max-width:40rem;margin:0 auto;color:var(--body);font-size:1.125rem;font-weight:400}
 
   .info{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;background:transparent;border:0;max-width:1300px;margin:0 auto}
@@ -162,6 +164,7 @@ nav.top .links a {
 }
 
 nav.top .burger {
+  display: none;
   flex-shrink: 0;
 }
 
@@ -170,14 +173,41 @@ nav.top .nav-cta {
   white-space: nowrap;
 }
 
-/* Mobile dropdown: stack links (pages toggle .open) */
+/* Mobile: row nav + CTA hidden; burger opens full-width dropdown (needs nav.top .wrap position) */
 @media (max-width: 880px) {
+  nav.top .wrap {
+    position: relative;
+  }
+
+  nav.top .burger {
+    display: block;
+  }
+
+  nav.top .links:not(.open) {
+    display: none;
+  }
+
+  nav.top .nav-cta {
+    display: none;
+  }
+
   nav.top .links.open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 200;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: stretch;
     justify-content: flex-start;
     gap: 14px;
+    padding: 1.25rem min(2.5rem, 5vw);
+    margin: 0;
+    background: var(--white, #ffffff);
+    border-bottom: 0.5px solid var(--border, #e2ede4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 
   nav.top .links.open a {
@@ -467,8 +497,8 @@ footer {
   <a href="/book.html" class="nav-cta">Book a Session</a>
 </div></nav>
 
-<section class="hero">
-  <span class="eyebrow">Contact & Partner With Us</span>
+<section class="hero hero-bg hero-bg--purple">
+  <span class="eyebrow eyebrow--purple">Contact & Partner With Us</span>
   <h1>Let's <span class="grad">talk.</span></h1>
   <p>Clients, partners, schools, volunteers, researchers, curious minds, and anyone interested in sponsorship or support — every conversation is welcome here.</p>
 </section>
