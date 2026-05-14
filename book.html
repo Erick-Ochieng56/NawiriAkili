@@ -87,7 +87,373 @@
   .copy{max-width:1400px;margin:3rem auto 0;padding-top:2rem;border-top:0.5px solid rgba(255,255,255,0.15);text-align:center;font-size:13px;color:rgba(255,255,255,0.65);font-weight:300}
   .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s,transform .6s}  .reveal.in{opacity:1;transform:none}
 </style>
-<link rel="stylesheet" href="site.css" />
+<!-- build:css:start -->
+<style>
+/* Shared layout: nav band, section rhythm, hero/banner/final bands, components */
+/* Shared utilities — crisis/info strip + display headings (linked after design tokens in each page’s :root) */
+
+/* -------------------------------------------------------------------------- */
+/* Readability: slightly larger type, more line-height, roomier sections         */
+/* -------------------------------------------------------------------------- */
+html {
+  font-size: 17px;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  line-height: 1.82;
+  font-weight: 400;
+}
+
+/* Default section rhythm (overrides first inline block when this file loads later) */
+section {
+  padding: 4.25rem min(5vw, 3.25rem);
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: 2.85rem 1.35rem;
+  }
+}
+
+/*
+ * Nav: fixed bar height. Inner content height = --nav-bar-inner-h; logo height matches it exactly.
+ * Change --nav-bar-inner-h (and optionally --nav-pad-y) to resize bar + logo together.
+ */
+nav.top .wrap {
+  --nav-pad-y: 0.65rem;
+  /* Inner band = logo height; larger value = taller fixed bar + bigger logo (same rule) */
+  --nav-bar-inner-h: 3.875rem;
+  box-sizing: border-box;
+  padding-top: var(--nav-pad-y);
+  padding-bottom: var(--nav-pad-y);
+  height: calc(var(--nav-bar-inner-h) + 2 * var(--nav-pad-y));
+  min-height: calc(var(--nav-bar-inner-h) + 2 * var(--nav-pad-y));
+  max-height: calc(var(--nav-bar-inner-h) + 2 * var(--nav-pad-y));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+nav.top .links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(0.6rem, 1.2vw, 1.35rem);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+nav.top .links a {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+nav.top .burger {
+  flex-shrink: 0;
+}
+
+nav.top .nav-cta {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Mobile dropdown: stack links (pages toggle .open) */
+@media (max-width: 880px) {
+  nav.top .links.open {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 14px;
+  }
+
+  nav.top .links.open a {
+    white-space: normal;
+  }
+}
+
+/* Logo height === inner nav band (between vertical padding) */
+nav.top .brand {
+  gap: 0;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: var(--nav-bar-inner-h);
+}
+
+nav.top .brand .brand-logo {
+  display: block;
+  height: var(--nav-bar-inner-h);
+  width: auto;
+  max-height: var(--nav-bar-inner-h);
+  max-width: min(100%, 30rem);
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Brand mix: ~60% green family / ~40% purple (borders, overlays, accents)    */
+/* -------------------------------------------------------------------------- */
+
+nav.top {
+  border-bottom-color: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--border, #e2ede4) 70%, var(--primary, #449332) 30%) 60%,
+    var(--purple, #421f66) 40%
+  );
+}
+
+nav.top .links a:hover {
+  color: color-mix(in srgb, var(--primary, #449332) 60%, var(--purple, #421f66) 40%);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Photography: hero / banner / closing band backgrounds                     */
+/* Set --hero-image, optional --banner-image / --final-bg per page in :root   */
+/* -------------------------------------------------------------------------- */
+
+.hero-bg {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--tint, #f0f7ee);
+  background-image: var(--hero-image, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: color-mix(
+    in srgb,
+    var(--hero-overlay, rgba(240, 247, 238, 0.72)) 60%,
+    rgba(66, 31, 102, 0.2) 40%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Slightly stronger overlay for text-heavy heroes (still lets photo show) */
+.hero-bg--soft::after {
+  background: color-mix(
+    in srgb,
+    var(--hero-overlay-strong, rgba(240, 247, 238, 0.78)) 60%,
+    rgba(66, 31, 102, 0.18) 40%
+  );
+}
+
+/* Initiative hero: still purple-forward, with explicit 60/40 green-violet / ink */
+.hero-bg--purple::after {
+  background: color-mix(
+    in srgb,
+    var(--hero-overlay-purple, rgba(245, 240, 252, 0.92)) 60%,
+    rgba(66, 31, 102, 0.28) 40%
+  );
+}
+
+/* Banner strip: optional background photo under blue tint */
+.banner-visual {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--blue-tint, #eaf4fd);
+  background-image: var(--banner-image, none);
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: color-mix(
+    in srgb,
+    var(--banner-overlay, rgba(234, 244, 253, 0.92)) 60%,
+    rgba(66, 31, 102, 0.16) 40%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.banner-visual > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dark CTA band with optional texture */
+.final-bg {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--brand-dark, #2d5f24);
+  background-image: var(--final-bg, none);
+  background-size: cover;
+  background-position: center;
+}
+
+.final-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: color-mix(
+    in srgb,
+    var(--final-overlay, rgba(45, 95, 36, 0.92)) 60%,
+    rgba(66, 31, 102, 0.38) 40%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.final-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero figure (home): photo card */
+.hero-figure {
+  margin: 0 0 1.25rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 0.5px solid var(--border, #e2ede4);
+  aspect-ratio: 4 / 3;
+}
+
+.hero-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Service card thumbnails: show full photo (no crop); width matches card */
+figure.svc-thumb {
+  margin: 0 0 1rem;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 0.5px solid color-mix(
+    in srgb,
+    color-mix(in srgb, var(--border, #e2ede4) 70%, var(--primary, #449332) 30%) 60%,
+    var(--purple, #421f66) 40%
+  );
+  background: color-mix(in srgb, var(--tint, #f0f7ee) 60%, var(--purple-tint, #e4daee) 40%);
+}
+
+figure.svc-thumb img {
+  width: 100%;
+  display: block;
+  height: auto;
+  object-fit: contain;
+}
+
+.blog-list-thumb {
+  flex-shrink: 0;
+  width: 5.75rem;
+  height: 4.25rem;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 0.5px solid var(--border, #e2ede4);
+}
+
+.cats .cat li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.cats .cat li .blog-list-thumb {
+  order: -1;
+}
+
+.cats .cat li .blog-post-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.cats .cat li::before {
+  margin-top: 0.15rem;
+}
+
+
+.section-crisis-info {
+  background: color-mix(in srgb, var(--blue-tint, #eaf4fd) 60%, var(--purple-tint, #e4daee) 40%);
+  border-top: 0.5px solid color-mix(
+    in srgb,
+    color-mix(in srgb, var(--border, #e2ede4) 70%, var(--primary, #449332) 30%) 60%,
+    var(--purple, #421f66) 40%
+  );
+  border-bottom: 0.5px solid color-mix(
+    in srgb,
+    color-mix(in srgb, var(--border, #e2ede4) 70%, var(--primary, #449332) 30%) 60%,
+    var(--purple, #421f66) 40%
+  );
+  padding: 4rem min(5vw, 3.25rem);
+}
+@media (max-width: 640px) {
+  .section-crisis-info {
+    padding: 2.85rem 1.35rem;
+  }
+}
+
+/**
+ * Display section titles — larger than body h2 (22px), without changing semantic structure.
+ * Specificity beats bare `h2 { font-size: 22px }` in page stylesheets.
+ */
+h2.heading-display {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.625rem, 2.6vw, 2.05rem);
+  font-weight: 400;
+  line-height: 1.28;
+  color: color-mix(in srgb, var(--brand-darkest, #1a3015) 60%, var(--purple, #421f66) 40%);
+}
+
+/* Crisis / global-messaging banner (ocean headline) — beats .banner h2 { font-size } from page CSS */
+.banner h2.heading-display,
+.section-crisis-banner h2.heading-display {
+  color: var(--blue);
+  font-size: clamp(1.625rem, 2.6vw, 2.05rem);
+}
+
+/* On tinted or blue info sections, keep strong contrast */
+.section-crisis-info h2.heading-display {
+  color: var(--brand-darkest);
+}
+
+/* Display headings on dark or filled bands */
+.glance h2.heading-display,
+.founder h2.heading-display,
+.build h2.heading-display,
+.cta h2.heading-display {
+  color: var(--white);
+  font-size: clamp(1.625rem, 2.6vw, 2.05rem);
+}
+
+footer {
+  border-top: 2px solid color-mix(in srgb, var(--primary, #449332) 60%, var(--purple, #421f66) 40%);
+}
+
+.cats .cat {
+  border: 0.5px solid color-mix(
+    in srgb,
+    color-mix(in srgb, var(--border, #e2ede4) 70%, var(--primary, #449332) 30%) 60%,
+    var(--purple, #421f66) 40%
+  );
+}
+</style>
+<!-- build:css:end -->
 </head>
 <body>
 <nav class="top"><div class="wrap">
