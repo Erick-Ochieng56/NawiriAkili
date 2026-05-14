@@ -119,11 +119,14 @@
   .svc .ic{width:48px;height:48px;border-radius:10px;background:var(--tint);display:grid;place-items:center;font-size:22px;margin-bottom:18px;border:0.5px solid var(--border)}
   .svc h4{font-size:1.1875rem;margin-bottom:12px;font-family:'DM Serif Display',serif;color:var(--brand-darkest)}
   .svc p{color:var(--body);font-size:1.0625rem;font-weight:400;line-height:1.75}
+  .svc-cta-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;margin-top:40px}
+  @media(max-width:640px){.svc-cta-row{flex-direction:column;gap:14px}}
 
   .give{background:var(--purple-tint)}
-  .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;background:transparent;border:0;max-width:1300px;margin:0 auto}
-  @media(max-width:900px){.tiers{grid-template-columns:repeat(2,1fr)}}
-  .tier{padding:2rem 1.75rem;background:var(--white);text-align:center;border:0.5px solid var(--border);border-radius:18px}
+  .tiers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem;background:transparent;border:0;max-width:1300px;margin:0 auto;width:100%}
+  @media(max-width:900px){.tiers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:640px){.tiers{grid-template-columns:minmax(0,1fr)}}
+  .tier{min-width:0;padding:2rem 1.75rem;background:var(--white);text-align:center;border:0.5px solid var(--border);border-radius:18px}
   .tier .amt{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.5vw,1.875rem);font-weight:400;color:var(--brand-dark)}
   .tier .usd{font-size:1rem;color:var(--body);margin:8px 0 1rem;font-weight:400}
   .tier .what{font-size:1.0625rem;color:var(--body);font-weight:400;line-height:1.55}
@@ -816,7 +819,7 @@ footer {
     <div class="svc reveal"><figure class="svc-thumb"><img src="images/virtual_therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">💻</div><h4>Virtual Care</h4><p>Fully confidential online sessions from anywhere in Kenya or internationally.</p></div>
     <div class="svc reveal"><figure class="svc-thumb"><img src="images/subsidised_free_care.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">💚</div><h4>Subsidised or Free Care</h4><p>Care without conditions. Through the Initiative, mental wellness belongs to everyone.</p></div>
   </div>
-  <div style="text-align:center;margin-top:40px"><a href="/services.html" class="btn btn-primary">All Services →</a> <a href="/book.html" class="btn btn-ghost">Book a Session →</a></div>
+  <div class="svc-cta-row"><a href="/services.html" class="btn btn-primary">All Services →</a><a href="/book.html" class="btn btn-ghost">Book a Session →</a></div>
 </section>
 
 <section class="give">
