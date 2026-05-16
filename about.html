@@ -390,6 +390,66 @@ nav.top .links a:hover {
   z-index: 1;
 }
 
+/* CTA rows: space between buttons on mobile (no clamping) */
+.cta-row,
+.final-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 1.25rem;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .cta-row,
+  .final-ctas {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-row > a,
+  .cta-row > .btn,
+  .cta-row > [class*="btn-"],
+  .final-ctas > a,
+  .final-ctas > .btn,
+  .final-ctas > [class*="btn-"] {
+    display: inline-flex !important;
+    margin: 0 !important;
+    width: 100%;
+    max-width: 22rem;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  /* Spacing between link buttons (avoids whitespace text-node bug with > * + *) */
+  .cta-row > a:not(:first-of-type),
+  .final-ctas > a:not(:first-of-type) {
+    margin-top: 16px !important;
+  }
+}
+/* Final band CTAs (Book a Session + Walk With Us) */
+section.final .cta-row.final-ctas {
+  margin-top: 1.5rem;
+}
+@media (max-width: 640px) {
+  section.final .cta-row.final-ctas {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+    row-gap: 16px !important;
+    font-size: 0;
+  }
+  section.final .cta-row.final-ctas > a {
+    font-size: 14px;
+    margin: 0 !important;
+  }
+}
+
+
 /* Hero figure (home): photo card */
 .hero-figure {
   margin: 0 0 1.25rem;
@@ -932,8 +992,9 @@ footer {
 
 <section class="final final-bg">
   <h2>Ready to take the first step?</h2>
-  <a href="/book.html" class="btn btn-green">Book a Session</a>
-  <a href="/walk-with-us.html" class="btn-outline-white" style="margin-left:12px;display:inline-flex">❤️ Walk With Us</a>
+  <div class="cta-row final-ctas">
+    <a href="/book.html" class="btn btn-green">Book a Session</a><!-- --><a href="/walk-with-us.html" class="btn btn-outline-white">❤️ Walk With Us</a>
+  </div>
 </section>
 
 <footer>

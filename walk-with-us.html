@@ -404,6 +404,38 @@ nav.top .links a:hover {
   z-index: 1;
 }
 
+/* CTA rows: space between buttons on mobile (no clamping) */
+.cta-row,
+.final-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 1.25rem;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .cta-row,
+  .final-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    width: 100%;
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-row > a,
+  .cta-row > .btn,
+  .final-ctas > a,
+  .final-ctas > .btn {
+    margin-left: 0 !important;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
 /* Hero figure (home): photo card */
 .hero-figure {
   margin: 0 0 1.25rem;
@@ -986,8 +1018,10 @@ footer {
 <section class="final final-bg">
   <h2>When one mind flourishes, <span class="green">the whole community grows with it.</span></h2>
   <p>You do not need to solve the crisis. You just need to show up for one person.<br><strong style="color:#fff">Walk with us.</strong></p>
-  <a href="#give" class="btn btn-green">❤ Give Now</a>
-  <a href="/contact.html" class="btn-light" style="margin-left:10px;display:inline-flex">Partner With Us</a>
+  <div class="cta-row final-ctas">
+    <a href="#give" class="btn btn-green">❤ Give Now</a>
+    <a href="/contact.html" class="btn-light">Partner With Us</a>
+  </div>
 </section>
 
 <footer>
