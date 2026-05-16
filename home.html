@@ -30,7 +30,7 @@
   html{font-size:17px}
   :root{
     --primary:#4CB894;--brand-dark:#3A9A7A;--brand-darkest:#1E4A3A;
-    --tint:#EDF8F2;--purple:#421f66;--purple-tint:#e4daee;
+    --tint:#EDF8F2;--purple:#421f66;--purple-tint:#e4daee;--section-purple:#E8E0F5;
     --blue:#1565a8;--blue-tint:#eaf4fd;
     --white:#ffffff;--body:#4a5568;--border:#e2ede4;
     --chip-green-bg:#C8EDE0;--chip-green-fg:#1A4536;
@@ -170,7 +170,7 @@
   footer .tag{font-style:italic;color:#D4F0E6;margin-bottom:14px;font-weight:400}
   .copy{max-width:1400px;margin:3rem auto 0;padding-top:2rem;border-top:0.5px solid rgba(255,255,255,0.15);text-align:center;font-size:13px;color:rgba(255,255,255,0.65);font-weight:300}
 
-  .section--white{background:var(--white)}
+  .section--white{background:var(--section-purple,var(--purple-tint))}
   .section--tint{background:var(--tint)}
 </style>
 <!-- build:css:start -->
@@ -470,6 +470,23 @@ nav.top .links a:hover {
 }
 
 
+
+/* Site sections: white band backgrounds → soft purple */
+.section--white {
+  background: var(--section-purple, var(--purple-tint));
+}
+section[style*="background:var(--white)"] {
+  background: var(--section-purple, var(--purple-tint)) !important;
+}
+section.name,
+section.costs {
+  background: var(--section-purple, var(--purple-tint));
+}
+section:not(.hero):not(.hero-bg):not(.final):not(.final-bg):not(.banner):not(.banner-visual):not(.section-crisis-info):not(.section--tint):not(.give):not(.form-wrap):not(.founder-wrap):not(.vmv):not(.path):not(.model-wrap):not(.cta):not([class*="hero"]):not([id="give"]):not([style*="background"]) {
+  background-color: var(--section-purple, var(--purple-tint));
+}
+
+
 /* Hero figure (home): photo card */
 .hero-figure {
   margin: 0 0 1.25rem;
@@ -601,9 +618,14 @@ footer {
 </style>
 <!-- build:css:end -->
 <style>
-  /* Hero backdrop: light purple wash over photo */
+  /* Hero backdrop: mint green + violet wash over photo */
   header.hero.hero-bg {
-    background-color: color-mix(in srgb, var(--purple-tint) 62%, var(--purple) 38%);
+    background-color: color-mix(
+      in srgb,
+      var(--primary) 32%,
+      var(--purple-tint) 48%,
+      var(--purple) 20%
+    );
     background-image: var(--hero-image);
     background-size: cover;
     background-position: center center;
@@ -618,8 +640,9 @@ footer {
     pointer-events: none;
     background: color-mix(
       in srgb,
-      rgba(240, 235, 248, 0.88) 58%,
-      rgba(66, 31, 102, 0.32) 42%
+      rgba(200, 237, 224, 0.78) 42%,
+      rgba(232, 224, 245, 0.82) 38%,
+      rgba(66, 31, 102, 0.2) 20%
     );
   }
   header.hero.hero-bg > .hero-grid,

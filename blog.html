@@ -29,7 +29,7 @@
   html{font-size:17px}
   :root{
     --primary:#4CB894;--brand-dark:#3A9A7A;--brand-darkest:#1E4A3A;
-    --tint:#EDF8F2;--purple:#421f66;--purple-tint:#e4daee;
+    --tint:#EDF8F2;--purple:#421f66;--purple-tint:#e4daee;--section-purple:#E8E0F5;
     --white:#ffffff;--body:#4a5568;--border:#e2ede4;
     --chip-purple-bg:#d6cae6;--chip-purple-fg:#2f1748;
     --purple-deep:#251238;--green:#4CB894;
@@ -393,6 +393,23 @@ nav.top .links a:hover {
     width: 100%;
     justify-content: center;
   }
+}
+
+
+
+/* Site sections: white band backgrounds → soft purple */
+.section--white {
+  background: var(--section-purple, var(--purple-tint));
+}
+section[style*="background:var(--white)"] {
+  background: var(--section-purple, var(--purple-tint)) !important;
+}
+section.name,
+section.costs {
+  background: var(--section-purple, var(--purple-tint));
+}
+section:not(.hero):not(.hero-bg):not(.final):not(.final-bg):not(.banner):not(.banner-visual):not(.section-crisis-info):not(.section--tint):not(.give):not(.form-wrap):not(.founder-wrap):not(.vmv):not(.path):not(.model-wrap):not(.cta):not([class*="hero"]):not([id="give"]):not([style*="background"]) {
+  background-color: var(--section-purple, var(--purple-tint));
 }
 
 
