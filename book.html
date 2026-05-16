@@ -53,13 +53,17 @@
 
   .svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.35rem;background:transparent;border:0;max-width:1300px;margin:0 auto}
   @media(max-width:980px){.svcs{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.svcs{grid-template-columns:1fr}}
-  .pick{padding:1.75rem 1.65rem;background:var(--white);border:0.5px solid var(--border);border-radius:18px;cursor:pointer;transition:border-color .2s,box-shadow .2s}
-  .pick:hover{box-shadow:0 0 0 2px var(--primary)}
-  .pick h4{font-size:1.0625rem;font-family:'Nunito',sans-serif;font-weight:600;color:var(--brand-dark);margin-bottom:8px}
+  .pick{position:relative;padding:1.75rem 1.65rem;background:var(--white);border:2px solid var(--border);border-radius:18px;cursor:pointer;transition:border-color .25s,box-shadow .25s,background-color .25s}
+  .pick:hover,.pick:focus-visible{border-color:var(--primary);box-shadow:0 0 0 3px rgba(68,147,50,.35),0 8px 24px rgba(37,18,56,.08);outline:none}
+  .pick.is-selected{border-color:var(--primary);background:var(--tint);box-shadow:0 0 0 3px var(--primary),0 10px 28px rgba(68,147,50,.14)}
+  .pick.is-selected::after{content:"✓ Selected";position:absolute;top:14px;right:14px;padding:5px 12px;border-radius:100px;background:var(--primary);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;line-height:1.2}
+  .pick h4{font-size:1.0625rem;font-family:'Nunito',sans-serif;font-weight:600;color:var(--brand-dark);margin-bottom:8px;padding-right:5.5rem}
   .pick p{color:var(--body);font-size:1rem;margin-bottom:10px;font-weight:400;line-height:1.75}
   .pick .meta{font-size:13px;color:var(--primary);font-style:italic;font-weight:400}
   .pick.free{background:var(--tint)}
+  .pick.free.is-selected{background:color-mix(in srgb,var(--tint) 70%,var(--white))}
   .pick.free h4{color:var(--brand-dark)}
+  #svc.has-value{border-color:var(--primary);box-shadow:0 0 0 2px rgba(68,147,50,.28)}
 
   .form-wrap{background:var(--tint)}
   form.book{max-width:780px;margin:0 auto;background:var(--white);padding:2.5rem;border-radius:18px;border:0.5px solid var(--border)}
@@ -794,6 +798,30 @@ footer {
 }
 </style>
 
+<style id="book-service-pick">
+/* Service cards: green ring on hover + persistent selection (overrides shared motion hovers) */
+.svcs .pick:hover,
+.svcs .pick:focus-visible {
+  transform: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(68, 147, 50, 0.4), 0 8px 24px rgba(37, 18, 56, 0.08);
+}
+.svcs .pick.is-selected {
+  transform: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary), 0 10px 28px rgba(68, 147, 50, 0.16);
+}
+@media (hover: none), (pointer: coarse) {
+  .svcs .pick:active {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(68, 147, 50, 0.45);
+  }
+  .svcs .pick.is-selected:active {
+    box-shadow: 0 0 0 3px var(--primary), 0 8px 22px rgba(68, 147, 50, 0.14);
+  }
+}
+</style>
+
 </head>
 <body>
 <nav class="top"><div class="wrap">
@@ -822,13 +850,13 @@ footer {
     <span class="eyebrow">Available Services</span>
     <h2 class="heading-display" style="margin-top:18px">Choose what feels right</h2>
   </div>
-  <div class="svcs">
-    <div class="pick reveal" onclick="document.getElementById('svc').value='Individual therapy';document.getElementById('book').scrollIntoView({behavior:'smooth'})"><figure class="svc-thumb"><img src="images/individual_therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><h4>Individual Therapy</h4><p>Evidence-based one-on-one support. In-person or virtual.</p><div class="meta">Anxiety · Trauma · Depression · Burnout · Life transitions</div></div>
-    <div class="pick reveal" onclick="document.getElementById('svc').value='Family therapy';document.getElementById('book').scrollIntoView({behavior:'smooth'})"><figure class="svc-thumb"><img src="images/family_therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><h4>Family Therapy</h4><p>Support for family systems navigating conflict, grief, or significant change.</p><div class="meta">Family systems · Communication · Intergenerational</div></div>
-    <div class="pick reveal" onclick="document.getElementById('svc').value='Group therapy';document.getElementById('book').scrollIntoView({behavior:'smooth'})"><figure class="svc-thumb"><img src="images/therapy1.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><h4>Group Therapy</h4><p>Professionally facilitated groups for shared experiences.</p><div class="meta">Grief · Anxiety · Trauma · Transitions</div></div>
-    <div class="pick reveal" onclick="document.getElementById('svc').value='Organisational consultation';document.getElementById('book').scrollIntoView({behavior:'smooth'})"><figure class="svc-thumb"><img src="images/physchology.png" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><h4>Psychological Consultation</h4><p>Mental health expertise for organisations, schools, and institutions.</p><div class="meta">Program design · Supervision · Institutional wellness</div></div>
-    <div class="pick reveal" onclick="document.getElementById('svc').value='Virtual session';document.getElementById('book').scrollIntoView({behavior:'smooth'})"><figure class="svc-thumb"><img src="images/virtual_therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><h4>Virtual Session</h4><p>Online from anywhere — Kenya or internationally. All services available.</p><div class="meta">Flexible · Secure · All services</div></div>
-    <div class="pick free reveal" onclick="document.getElementById('svc').value='I would like to support the Initiative';document.getElementById('book').scrollIntoView({behavior:'smooth'})"><figure class="svc-thumb"><img src="images/subsidised_free_care.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><h4>Subsidised or Free Support</h4><p><strong>Cannot afford care?</strong> We will find a way. Subsidised and free sessions are available through the Initiative. No one is turned away.</p><div class="meta">Free sessions · Subsidised care · Emergency support · No barriers</div></div>
+  <div class="svcs" id="book-services">
+    <div class="pick reveal" role="button" tabindex="0" data-svc="Individual therapy" aria-pressed="false"><figure class="svc-thumb"><img src="images/individual_therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><h4>Individual Therapy</h4><p>Evidence-based one-on-one support. In-person or virtual.</p><div class="meta">Anxiety · Trauma · Depression · Burnout · Life transitions</div></div>
+    <div class="pick reveal" role="button" tabindex="0" data-svc="Family therapy" aria-pressed="false"><figure class="svc-thumb"><img src="images/family_therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><h4>Family Therapy</h4><p>Support for family systems navigating conflict, grief, or significant change.</p><div class="meta">Family systems · Communication · Intergenerational</div></div>
+    <div class="pick reveal" role="button" tabindex="0" data-svc="Group therapy" aria-pressed="false"><figure class="svc-thumb"><img src="images/therapy1.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><h4>Group Therapy</h4><p>Professionally facilitated groups for shared experiences.</p><div class="meta">Grief · Anxiety · Trauma · Transitions</div></div>
+    <div class="pick reveal" role="button" tabindex="0" data-svc="Organisational consultation" aria-pressed="false"><figure class="svc-thumb"><img src="images/physchology.png" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><h4>Psychological Consultation</h4><p>Mental health expertise for organisations, schools, and institutions.</p><div class="meta">Program design · Supervision · Institutional wellness</div></div>
+    <div class="pick reveal" role="button" tabindex="0" data-svc="Virtual session" aria-pressed="false"><figure class="svc-thumb"><img src="images/virtual_therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><h4>Virtual Session</h4><p>Online from anywhere — Kenya or internationally. All services available.</p><div class="meta">Flexible · Secure · All services</div></div>
+    <div class="pick free reveal" role="button" tabindex="0" data-svc="Subsidised or free care" aria-pressed="false"><figure class="svc-thumb"><img src="images/subsidised_free_care.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><h4>Subsidised or Free Support</h4><p><strong>Cannot afford care?</strong> We will find a way. Subsidised and free sessions are available through the Initiative. No one is turned away.</p><div class="meta">Free sessions · Subsidised care · Emergency support · No barriers</div></div>
   </div>
 </section>
 
@@ -847,6 +875,7 @@ footer {
         <option>Group therapy</option>
         <option>Organisational consultation</option>
         <option>Virtual session</option>
+        <option>Subsidised or free care</option>
         <option>I would like to support the Initiative</option>
         <option>Not sure yet</option>
       </select>
@@ -1021,6 +1050,62 @@ footer {
     bIo.observe(banner);
   });
 
+})();
+</script>
+
+<script id="book-service-pick-js">
+(function () {
+  "use strict";
+  var picks = document.querySelectorAll("#book-services .pick[data-svc]");
+  var svcSelect = document.getElementById("svc");
+  var bookSection = document.getElementById("book");
+
+  function syncSelectState() {
+    if (!svcSelect) return;
+    svcSelect.classList.toggle("has-value", !!svcSelect.value);
+  }
+
+  function selectService(value, activeCard) {
+    if (svcSelect && value) svcSelect.value = value;
+    syncSelectState();
+    picks.forEach(function (card) {
+      var selected = activeCard
+        ? card === activeCard
+        : value && card.dataset.svc === value;
+      card.classList.toggle("is-selected", selected);
+      card.setAttribute("aria-pressed", selected ? "true" : "false");
+    });
+  }
+
+  picks.forEach(function (card) {
+    card.addEventListener("click", function () {
+      selectService(card.dataset.svc, card);
+      if (bookSection) {
+        bookSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+    card.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+
+  if (svcSelect) {
+    svcSelect.addEventListener("change", function () {
+      if (!svcSelect.value) {
+        picks.forEach(function (card) {
+          card.classList.remove("is-selected");
+          card.setAttribute("aria-pressed", "false");
+        });
+        syncSelectState();
+        return;
+      }
+      selectService(svcSelect.value, null);
+    });
+    syncSelectState();
+  }
 })();
 </script>
 
