@@ -438,6 +438,38 @@ nav.top .links a:hover {
   z-index: 1;
 }
 
+/* CTA rows: space between buttons on mobile (no clamping) */
+.cta-row,
+.final-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 1.25rem;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .cta-row,
+  .final-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    width: 100%;
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-row > a,
+  .cta-row > .btn,
+  .final-ctas > a,
+  .final-ctas > .btn {
+    margin-left: 0 !important;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
 /* Hero figure (home): photo card */
 .hero-figure {
   margin: 0 0 1.25rem;
