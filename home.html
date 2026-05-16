@@ -618,21 +618,15 @@ footer {
 </style>
 <!-- build:css:end -->
 <style>
-  /* Hero backdrop: mint green + violet wash over photo */
+  /* Hero backdrop: light mint wash over photo */
   header.hero.hero-bg {
-    background-color: color-mix(
-      in srgb,
-      var(--primary) 32%,
-      var(--purple-tint) 48%,
-      var(--purple) 20%
-    );
+    background-color: color-mix(in srgb, var(--white) 30%, var(--tint) 70%);
     background-image: var(--hero-image);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
   }
-  header.hero.hero-bg::after,
-  header.hero.hero-bg.hero-bg--purple::after {
+  header.hero.hero-bg::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -640,10 +634,10 @@ footer {
     pointer-events: none;
     background: color-mix(
       in srgb,
-      rgba(200, 237, 224, 0.78) 42%,
-      rgba(232, 224, 245, 0.82) 38%,
-      rgba(66, 31, 102, 0.2) 20%
+      rgba(255, 255, 255, 0.55) 35%,
+      var(--tint) 65%
     );
+    opacity: 0.94;
   }
   header.hero.hero-bg > .hero-grid,
   header.hero.hero-bg > * {
@@ -1102,7 +1096,7 @@ footer {
   </div>
 </nav>
 
-<header class="hero hero-bg hero-bg--purple">
+<header class="hero hero-bg">
   <div class="blob b1"></div>
   <div class="blob b2"></div>
   <div class="hero-grid">
