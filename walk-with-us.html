@@ -29,7 +29,7 @@
   html{font-size:17px}
   :root{
     --primary:#4CB894;--brand-dark:#3A9A7A;--brand-darkest:#1E4A3A;
-    --tint:#EDF8F2;--purple:#421f66;--purple-tint:#e4daee;
+    --tint:#EDF8F2;--purple:#421f66;--purple-tint:#e4daee;--section-purple:#E8E0F5;
     --blue:#1565a8;--blue-tint:#eaf4fd;
     --white:#ffffff;--body:#4a5568;--border:#e2ede4;
     --chip-green-bg:#C8EDE0;--chip-green-fg:#1A4536;
@@ -75,7 +75,7 @@
   .reality h2{margin-bottom:20px}
   .reality p{color:var(--body);font-size:1.0625rem;max-width:40rem;margin:0 auto 18px;font-weight:400;line-height:1.75}
 
-  .costs{background:var(--white)}
+  .costs{background:var(--section-purple,var(--purple-tint))}
   .costs-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem;background:transparent;border:0;max-width:1400px;margin:0 auto;width:100%}
   @media(max-width:1000px){.costs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media(max-width:640px){.costs-grid{grid-template-columns:minmax(0,1fr);gap:1rem}}
@@ -433,6 +433,23 @@ nav.top .links a:hover {
     width: 100%;
     justify-content: center;
   }
+}
+
+
+
+/* Site sections: white band backgrounds → soft purple */
+.section--white {
+  background: var(--section-purple, var(--purple-tint));
+}
+section[style*="background:var(--white)"] {
+  background: var(--section-purple, var(--purple-tint)) !important;
+}
+section.name,
+section.costs {
+  background: var(--section-purple, var(--purple-tint));
+}
+section:not(.hero):not(.hero-bg):not(.final):not(.final-bg):not(.banner):not(.banner-visual):not(.section-crisis-info):not(.section--tint):not(.give):not(.form-wrap):not(.founder-wrap):not(.vmv):not(.path):not(.model-wrap):not(.cta):not([class*="hero"]):not([id="give"]):not([style*="background"]) {
+  background-color: var(--section-purple, var(--purple-tint));
 }
 
 

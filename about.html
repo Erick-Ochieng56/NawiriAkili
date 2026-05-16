@@ -29,7 +29,7 @@
   html{font-size:17px}
   :root{
     --primary:#4CB894;--brand-dark:#3A9A7A;--brand-darkest:#1E4A3A;
-    --tint:#EDF8F2;--purple:#421f66;--purple-tint:#e4daee;
+    --tint:#EDF8F2;--purple:#421f66;--purple-tint:#e4daee;--section-purple:#E8E0F5;
     --white:#ffffff;--body:#4a5568;--border:#e2ede4;
     --chip-green-bg:#C8EDE0;--chip-green-fg:#1A4536;
     --chip-purple-bg:#d6cae6;--chip-purple-fg:#2f1748;
@@ -73,7 +73,7 @@
   .hero h1 .grad{color:var(--brand-dark);font-style:italic}
   .hero p.lede{max-width:40rem;margin:0 auto;color:var(--body);font-size:1.125rem;font-weight:400}
 
-  section.name{background:var(--white)}
+  section.name{background:var(--section-purple,var(--purple-tint))}
   .name-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:3.75rem;align-items:center}
   @media(max-width:900px){.name-grid{grid-template-columns:1fr}}
   section.name h2{margin-bottom:18px}
@@ -447,6 +447,23 @@ section.final .cta-row.final-ctas {
     font-size: 14px;
     margin: 0 !important;
   }
+}
+
+
+
+/* Site sections: white band backgrounds → soft purple */
+.section--white {
+  background: var(--section-purple, var(--purple-tint));
+}
+section[style*="background:var(--white)"] {
+  background: var(--section-purple, var(--purple-tint)) !important;
+}
+section.name,
+section.costs {
+  background: var(--section-purple, var(--purple-tint));
+}
+section:not(.hero):not(.hero-bg):not(.final):not(.final-bg):not(.banner):not(.banner-visual):not(.section-crisis-info):not(.section--tint):not(.give):not(.form-wrap):not(.founder-wrap):not(.vmv):not(.path):not(.model-wrap):not(.cta):not([class*="hero"]):not([id="give"]):not([style*="background"]) {
+  background-color: var(--section-purple, var(--purple-tint));
 }
 
 
