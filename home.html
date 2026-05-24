@@ -82,8 +82,7 @@
   .btn-green:hover{background:var(--brand-dark)}
   .btn-ghost{background:transparent;color:var(--purple);border:1.5px solid var(--purple);padding:12px 28px}
   .btn-ghost:hover{background:var(--purple-tint)}
-  a.btn-ghost[href="/initiative.html"]:hover{background:var(--purple-deep);color:var(--white);border-color:var(--purple-deep)}
-  a.btn-ghost[href="/book.html"]:hover{background:var(--purple-deep);color:var(--white);border-color:var(--purple-deep)}
+  .btn.btn-ghost:hover{background:var(--purple-deep);color:var(--white);border-color:var(--purple-deep)}
   .hero-card{position:relative;border-radius:20px;padding:2.5rem;background:rgba(255,255,255,0.96);color:var(--body);border:0.5px solid var(--border)}
   .hero-card::after{display:none}
   .hero-card h3{color:var(--brand-darkest);font-size:1.2rem;margin-bottom:14px}
@@ -156,7 +155,7 @@
   .final .btn-ghost{color:var(--white);border-color:rgba(255,255,255,0.6)}
   .final .btn-ghost:hover{background:rgba(255,255,255,0.1)}
   .final .btn-on-light{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--white);color:var(--brand-dark);padding:12px 28px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:14px}
-  .final .btn-on-light:hover{background:var(--tint)}
+  .final .btn-on-light:hover{background:var(--purple-deep);color:var(--white);border-color:var(--purple-deep)}
 
   footer{background:var(--brand-darkest);color:#D4F0E6;width:100%;padding:3.5rem 2.5rem 2rem}
   @media(max-width:640px){footer{padding:2.5rem 1.25rem 1.5rem}}
@@ -614,6 +613,45 @@ footer {
     color-mix(in srgb, var(--border, #e2ede4) 70%, var(--primary, #4CB894) 30%) 60%,
     var(--purple, #421f66) 40%
   );
+}
+
+/* White-filled CTAs → purple on hover (matches hero outline buttons) */
+.btn-on-light,
+.btn-light,
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--white, #fff);
+  color: var(--brand-dark, #3a9a7a);
+  padding: 12px 28px;
+  border-radius: 100px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn-on-light:hover,
+.btn-light:hover,
+.btn-outline-white:hover,
+.final .btn-on-light:hover {
+  background: var(--purple-deep, #251238);
+  color: var(--white, #fff);
+  border-color: var(--purple-deep, #251238);
+}
+
+.btn-on-white:hover {
+  background: var(--purple-deep, #251238);
+  color: var(--white, #fff);
+  border-color: var(--purple-deep, #251238);
 }
 </style>
 <!-- build:css:end -->
@@ -1119,7 +1157,7 @@ section.give {
       <a href="/home.html">Home</a>
       <a href="/about.html">About</a>
       <a href="/services.html">Services</a>
-      <a href="/initiative.html">Initiative</a>
+      <a href="/initiative.html">Nawiri Akili Initiative</a>
       <a href="/walk-with-us.html">Walk With Us</a>
       <a href="/blog.html">Blog</a>
       <a href="/contact.html">Contact</a>
