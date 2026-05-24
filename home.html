@@ -18,9 +18,9 @@
 </script>
 
 <meta charset="utf-8" />
-<title>Nawiri Akili — Nurturing Minds, Transforming Communities</title>
+<title>Nawiri Akili · Nurturing Minds, Transforming Communities</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="description" content="Nawiri Akili-Care Africa and the Nawiri Akili Initiative — professional mental health care and community impact. Nurturing minds, transforming communities." />
+<meta name="description" content="Nawiri Akili-Care Africa and the Nawiri Akili Initiative: professional mental health care and community impact. Nurturing minds, transforming communities." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -82,8 +82,7 @@
   .btn-green:hover{background:var(--brand-dark)}
   .btn-ghost{background:transparent;color:var(--purple);border:1.5px solid var(--purple);padding:12px 28px}
   .btn-ghost:hover{background:var(--purple-tint)}
-  a.btn-ghost[href="/initiative.html"]:hover{background:var(--purple-deep);color:var(--white);border-color:var(--purple-deep)}
-  a.btn-ghost[href="/book.html"]:hover{background:var(--purple-deep);color:var(--white);border-color:var(--purple-deep)}
+  .btn.btn-ghost:hover{background:var(--purple-deep);color:var(--white);border-color:var(--purple-deep)}
   .hero-card{position:relative;border-radius:20px;padding:2.5rem;background:rgba(255,255,255,0.96);color:var(--body);border:0.5px solid var(--border)}
   .hero-card::after{display:none}
   .hero-card h3{color:var(--brand-darkest);font-size:1.2rem;margin-bottom:14px}
@@ -156,7 +155,7 @@
   .final .btn-ghost{color:var(--white);border-color:rgba(255,255,255,0.6)}
   .final .btn-ghost:hover{background:rgba(255,255,255,0.1)}
   .final .btn-on-light{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--white);color:var(--brand-dark);padding:12px 28px;border-radius:100px;font-family:'Nunito',sans-serif;font-weight:700;font-size:14px}
-  .final .btn-on-light:hover{background:var(--tint)}
+  .final .btn-on-light:hover{background:var(--purple-deep);color:var(--white);border-color:var(--purple-deep)}
 
   footer{background:var(--brand-darkest);color:#D4F0E6;width:100%;padding:3.5rem 2.5rem 2rem}
   @media(max-width:640px){footer{padding:2.5rem 1.25rem 1.5rem}}
@@ -614,6 +613,45 @@ footer {
     color-mix(in srgb, var(--border, #e2ede4) 70%, var(--primary, #4CB894) 30%) 60%,
     var(--purple, #421f66) 40%
   );
+}
+
+/* White-filled CTAs → purple on hover (matches hero outline buttons) */
+.btn-on-light,
+.btn-light,
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--white, #fff);
+  color: var(--brand-dark, #3a9a7a);
+  padding: 12px 28px;
+  border-radius: 100px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn-on-light:hover,
+.btn-light:hover,
+.btn-outline-white:hover,
+.final .btn-on-light:hover {
+  background: var(--purple-deep, #251238);
+  color: var(--white, #fff);
+  border-color: var(--purple-deep, #251238);
+}
+
+.btn-on-white:hover {
+  background: var(--purple-deep, #251238);
+  color: var(--white, #fff);
+  border-color: var(--purple-deep, #251238);
 }
 </style>
 <!-- build:css:end -->
@@ -1113,13 +1151,13 @@ section.give {
 
 <nav class="top">
   <div class="wrap">
-    <a href="/home.html" class="brand"><img class="brand-logo" src="images/nawiri_logo.jpeg" width="320" height="320" alt="Nawiri Akili — Care Africa" decoding="async" /></a>
+    <a href="/home.html" class="brand"><img class="brand-logo" src="images/nawiri_logo.jpeg" width="320" height="320" alt="Nawiri Akili · Care Africa" decoding="async" /></a>
     <button class="burger" onclick="document.querySelector('.links').classList.toggle('open')">☰</button>
     <div class="links">
       <a href="/home.html">Home</a>
       <a href="/about.html">About</a>
       <a href="/services.html">Services</a>
-      <a href="/initiative.html">Initiative</a>
+      <a href="/initiative.html">Nawiri Akili Initiative</a>
       <a href="/walk-with-us.html">Walk With Us</a>
       <a href="/blog.html">Blog</a>
       <a href="/contact.html">Contact</a>
@@ -1134,7 +1172,7 @@ section.give {
   <div class="hero-grid">
     <div>
       <h1 class="headline">Nurturing Minds, <span class="grad">Transforming Communities</span></h1>
-      <p class="lede"><strong>"Nawiri"</strong> means to bloom. <em>Empowering growth, renewal, and a mentally flourishing community.</em> Nawiri exists to ensure quality mental health care is a right, not a privilege. Through the <mark>Nawiri Akili Initiative</mark>, we provide mental health education and subsidised or free care to communities — funded by community sponsorships and the professional expertise of <mark>Nawiri Akili-Care Africa</mark>, our consultancy arm. Together, one ecosystem. One mission.</p>
+      <p class="lede"><strong>"Nawiri"</strong> means to bloom. <em>Empowering growth, renewal, and a mentally flourishing community.</em> Nawiri exists to ensure quality mental health care is a right, not a privilege. Through the <mark>Nawiri Akili Initiative</mark>, we provide mental health education and subsidised or free care to communities, funded by community sponsorships and the professional expertise of <mark>Nawiri Akili-Care Africa</mark>, our consultancy arm. Together, one ecosystem. One mission.</p>
       <div class="cta-row">
         <a href="/walk-with-us.html" class="btn btn-green">💛 Support the Initiative</a>
         <a href="/book.html" class="btn btn-primary">Book a Session →</a>
@@ -1152,12 +1190,12 @@ section.give {
 <section class="banner banner-visual">
   <div class="icon">🌍</div>
   <h2 class="heading-display">Mental health is the defining health crisis of our generation.</h2>
-  <p>Over 1 billion people worldwide are living with a mental health condition. COVID-19 drove a 25% global surge in anxiety, depression, and other mental health conditions — and the world has yet to recover. This is not a distant crisis. It is a reality that touches every family, every community, every generation. Nawiri exists to meet it — one child, one community, one conversation at a time.</p>
+  <p>Over 1 billion people worldwide are living with a mental health condition. COVID-19 drove a 25% global surge in anxiety, depression, and other mental health conditions, and the world has yet to recover. This is not a distant crisis. It is a reality that touches every family, every community, every generation. Nawiri exists to meet it, one child, one community, one conversation at a time.</p>
 </section>
 
 <section class="section--white">
   <div class="section-head reveal">
-    <span class="eyebrow">The Numbers — 2025</span>
+    <span class="eyebrow">The Numbers, 2025</span>
     <h2 class="heading-display">The reality we are changing</h2>
     <p><em>Sources: WHO World Mental Health Today, September 2025 · JAMA Psychiatry 2025 · Project HOPE 2024 · The Lancet 2024</em></p>
   </div>
@@ -1167,7 +1205,7 @@ section.give {
     <div class="stat reveal"><div class="num">6.9%</div><div class="desc">Of those who need treatment actually receive it</div><div class="src">JAMA Psychiatry, 2025</div></div>
     <div class="stat reveal"><div class="num">1 in 7</div><div class="desc">Young people aged 10–19 have a mental health condition</div><div class="src">Project HOPE, 2024</div></div>
   </div>
-  <div class="pull reveal">Mental health is not a private burden to be carried alone. It is a shared reality and a shared responsibility — one that touches every family, every community, every generation.</div>
+  <div class="pull reveal">Mental health is not a private burden to be carried alone. It is a shared reality and a shared responsibility, one that touches every family, every community, every generation.</div>
 </section>
 
 <section class="section--tint">
@@ -1176,12 +1214,12 @@ section.give {
     <h2 class="heading-display">How we support individuals and organisations</h2>
   </div>
   <div class="svc-grid">
-    <div class="svc reveal"><figure class="svc-thumb"><img src="images/individual_therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">🧠</div><h4>Individual Therapy</h4><p>Professional, confidential support — evidence-based and tailored to you.</p></div>
-    <div class="svc reveal"><figure class="svc-thumb"><img src="images/family_therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">👨‍👩‍👧</div><h4>Family Therapy</h4><p>Structured support for family systems — communication, healing, and healthier relationships across generations.</p></div>
+    <div class="svc reveal"><figure class="svc-thumb"><img src="images/individual_therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">🧠</div><h4>Individual Therapy</h4><p>Professional, confidential support, evidence-based and tailored to you.</p></div>
+    <div class="svc reveal"><figure class="svc-thumb"><img src="images/family_therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">👨‍👩‍👧</div><h4>Family Therapy</h4><p>Structured support for family systems: communication, healing, and healthier relationships across generations.</p></div>
     <div class="svc reveal"><figure class="svc-thumb"><img src="images/corporate.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">🏢</div><h4>Organisational Wellness</h4><p>Organisations thrive when their people do. Tailored mental health programs, staff support, and sustainable wellness solutions.</p></div>
     <div class="svc reveal"><figure class="svc-thumb"><img src="images/physchology.png" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">🏫</div><h4>School & Community Programs</h4><p>Mental health education, stigma reduction, and accessible support directly into the spaces where people live, learn, and grow.</p></div>
     <div class="svc reveal"><figure class="svc-thumb"><img src="images/virtual_therapy.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">💻</div><h4>Virtual Care</h4><p>Fully confidential online sessions from anywhere in Kenya or internationally.</p></div>
-    <div class="svc reveal"><figure class="svc-thumb"><img src="images/subsidised_free_care.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">💚</div><h4>Subsidised or Free Care</h4><p>Care without conditions. Through the Nawiri Akili Initiative, subsidised and free sessions are available — because mental wellness belongs to everyone, without exception.</p></div>
+    <div class="svc reveal"><figure class="svc-thumb"><img src="images/subsidised_free_care.jpg" alt="" width="640" height="400" loading="lazy" decoding="async" /></figure><div class="ic">💚</div><h4>Subsidised or Free Care</h4><p>Care without conditions. Through the Nawiri Akili Initiative, subsidised and free sessions are available, because mental wellness belongs to everyone, without exception.</p></div>
   </div>
   <div class="svc-cta-row"><a href="/services.html" class="btn btn-primary">All Services →</a><a href="/book.html" class="btn btn-ghost">Book a Session →</a></div>
 </section>
@@ -1190,13 +1228,13 @@ section.give {
   <div class="section-head reveal">
     <span class="eyebrow eyebrow--purple">Walk With Us</span>
     <h2 class="heading-display">Mental health care should reach everyone.</h2>
-    <p>Through the Nawiri Akili Initiative, it does — one session, one school, one community at a time. Your contribution is what makes that possible.</p>
+    <p>Through the Nawiri Akili Initiative, it does, one session, one school, one community at a time. Your contribution is what makes that possible.</p>
   </div>
   <div class="tiers">
-    <div class="tier reveal"><div class="amt">KSh 1,000</div><div class="usd">approx. $8</div><div class="what">Sponsor a Session — fund one person's free therapy</div></div>
-    <div class="tier reveal"><div class="amt">KSh 5,000</div><div class="usd">approx. $38</div><div class="what">Community Workshop Support — bring mental health education to a school</div></div>
-    <div class="tier reveal"><div class="amt">KSh 10,000</div><div class="usd">approx. $77</div><div class="what">Subsidised Care Bundle — cover ten people's access to care</div></div>
-    <div class="tier reveal"><div class="amt">KSh 20,000</div><div class="usd">approx. $154</div><div class="what">Impact Partner Tier — a full month of community care and outreach</div></div>
+    <div class="tier reveal"><div class="amt">KSh 1,000</div><div class="usd">approx. $8</div><div class="what">Sponsor a Session: fund one person's free therapy</div></div>
+    <div class="tier reveal"><div class="amt">KSh 5,000</div><div class="usd">approx. $38</div><div class="what">Community Workshop Support: bring mental health education to a school</div></div>
+    <div class="tier reveal"><div class="amt">KSh 10,000</div><div class="usd">approx. $77</div><div class="what">Subsidised Care Bundle: cover ten people's access to care</div></div>
+    <div class="tier reveal"><div class="amt">KSh 20,000</div><div class="usd">approx. $154</div><div class="what">Impact Partner Tier: a full month of community care and outreach</div></div>
   </div>
   <div style="text-align:center;margin-top:40px"><a href="/walk-with-us.html" class="btn btn-green">See All Ways to Give →</a></div>
 </section>
@@ -1216,7 +1254,7 @@ section.give {
     <div>
       <div class="foot-brand">Nawiri Akili-Care Africa</div>
       <p class="tag">Nurturing Minds, Transforming Communities</p>
-      <p style="font-size:1rem;font-weight:400;line-height:1.75">"Nawiri" — to bloom. Empowering growth, renewal and a mentally flourishing community.</p>
+      <p style="font-size:1rem;font-weight:400;line-height:1.75">"Nawiri" means to bloom. Empowering growth, renewal and a mentally flourishing community.</p>
     </div>
     <div><h5>Explore</h5><ul><li><a href="/home.html">Home</a></li><li><a href="/about.html">About Us</a></li><li><a href="/services.html">Services</a></li><li><a href="/initiative.html">Nawiri Akili Initiative</a></li><li><a href="/blog.html">Blog & Insights</a></li></ul></div>
     <div><h5>Take Action</h5><ul><li><a href="/book.html">Book a Session</a></li><li><a href="/walk-with-us.html">💛 Walk With Us</a></li><li><a href="/contact.html">Partner With Us</a></li><li><a href="/walk-with-us.html">Volunteer</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
